@@ -1,0 +1,25 @@
+.header {
+  padding: 20px 0 20px 0;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__menu-link {
+  display: flex;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.4rem;
+  text-decoration: none;
+  color: $color-text-dark;
+  border-bottom: 1px solid transparent;
+  @extend %transition;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid $color-text-dark;
+  }
+}

@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+}
+
+.navigation > li {
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  @extend %transition;
+  &:hover {
+    border-bottom: 1px solid $color-text-dark;
+  }
+}
+
+.navigation__link {
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.4rem;
+  text-decoration: none;
+  color: $color-text-dark;
+}

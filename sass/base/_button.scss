@@ -1,0 +1,9 @@
+.link-button {
+  border-radius: 100px;
+  background: $color-bg-body;
+  padding: 20px 78px;
+  color: $color-text-dark;
+  text-align: center;
+  @include font(1.6rem, normal, 600, 2.4rem);
+  text-decoration: none;
+}

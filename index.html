@@ -14,71 +14,57 @@
   </head>
   <body>
     <header class="header">
-      <div class="wrapper">
+      <div class="wrapper header__wrapper">
         <a href="/" class="logo">
-          <object
-            type="image/svg+xml"
-            data="./images/logo.svg"
-            class="logo-object"
-          >
-            Your browser does not support SVG
-          </object>
+          <span class="logo-svg"></span>
         </a>
-        <nav class="navigation">
-          <ul>
-            <li><a href="#">Favorite coffee</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li>
-              <a href="#"
-                ><span>Menu</span>
-                <object
-                  type="image/svg+xml"
-                  data="./images/icons/coffee-cup.svg"
-                  class="icon-coffee-object"
-                >
-                  Your browser does not support SVG
-                </object>
-              </a>
-            </li>
+        <nav class="header__navigation">
+          <ul class="navigation">
+            <li><a href="#" class="navigation__link">Favorite coffee</a></li>
+            <li><a href="#" class="navigation__link">About</a></li>
+            <li><a href="#" class="navigation__link">Contact us</a></li>
           </ul>
         </nav>
+        <a href="#" class="header__menu-link"
+          ><span>Menu</span>
+          <span class="coffee-svg"></span>
+        </a>
       </div>
     </header>
 
     <main>
       <section class="hero">
-        <div class="wrapper">
+        <div class="wrapper hero__wrapper">
           <div class="hero__content">
             <h1 class="hero__title">
-              Enjoy premium coffee at our charming cafe
+              <span class="text-accented">Enjoy</span> premium coffee at our
+              charming cafe
             </h1>
-            <p>
+            <p class="hero__description">
               With its inviting atmosphere and delicious coffee options, the
               Coffee House Resource is a popular destination for coffee lovers
               and those seeking a warm and inviting space to enjoy their
               favorite beverage.
             </p>
-            <a href="#" class="link-button"
+            <a href="#" class="link-button hero__button"
               ><span>Menu</span>
-              <object
-                type="image/svg+xml"
-                data="./images/icons/coffee-cup.svg"
-                class="icon-coffee-object"
-              >
-                Your browser does not support SVG
-              </object>
+              <span class="coffee-svg"></span>
             </a>
           </div>
         </div>
       </section>
 
       <section class="favorite-coffee">
-        <div class="wrapper">
-          <h2>Choose your favorite coffee</h2>
+        <div class="wrapper favorite-coffee__wrapper">
+          <h2 class="favorite-coffee__title">
+            Choose your <span class="text-accented">favorite</span> coffee
+          </h2>
           <div class="slider">
             <div class="slider__carousel">
-              <span class="slider__arrow"></span>
+              <span class="slider__arrow">
+                <span class="slider__arrow-icon slider__arrow-icon_left">
+                </span>
+              </span>
               <div class="slider__slides">
                 <div class="slide">
                   <img
@@ -126,7 +112,10 @@
                   </div>
                 </div>
               </div>
-              <span class="slider__arrow"></span>
+              <span class="slider__arrow">
+                <span class="slider__arrow-icon slider__arrow-icon_right">
+                </span>
+              </span>
             </div>
             <div class="slider__controls"></div>
           </div>
@@ -136,9 +125,10 @@
       <section class="about">
         <div class="wrapper">
           <h2>
-            Resource is the perfect and cozy place where you can enjoy a variety
-            of hot beverages, relax, catch up with friends, or get some work
-            done.
+            Resource is
+            <span class="text-accented">the perfect and cozy place</span> where
+            you can enjoy a variety of hot beverages, relax, catch up with
+            friends, or get some work done.
           </h2>
           <div class="layout-2-column">
             <div class="column">
@@ -174,7 +164,10 @@
         <div class="wrapper">
           <div class="layout-2-column">
             <div class="mobila-app__content">
-              <h2>Download our apps to start ordering</h2>
+              <h2>
+                <span class="text-accented">Download</span> our apps to start
+                ordering
+              </h2>
               <p>
                 Download the Resource app today and experience the comfort of
                 ordering your favorite coffee from wherever you are
@@ -212,7 +205,10 @@
       <div class="wrapper">
         <div class="layout-2-column">
           <div class="footer__content">
-            <h2>Sip, Savor, Smile. It’s coffee time!</h2>
+            <h2>
+              Sip, Savor, Smile.
+              <span class="text-accented">It’s coffee time!</span>
+            </h2>
             <div class="footer__social-links">
               <a class="social-link">
                 <span class="icon icon-twitter"></span>

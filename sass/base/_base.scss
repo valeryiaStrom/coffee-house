@@ -1,0 +1,27 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  @include font(1.6rem, normal, 400, 2.4rem);
+  @extend %font-primary;
+  color: $color-text-dark;
+  background-color: $color-bg-body;
+}
+
+h1 { 
+  @include font(7.2rem, normal, 600, 7.56rem);
+}
+
+h2 {
+  @include font(6rem, normal, 600, 7.5rem);
+}
+
+h3 {
+  @include font(2.4rem, normal, 600, 3rem);
+}
+
+.text-accented {
+  color: $color-text-accent;
+  font-style: italic;
+}
