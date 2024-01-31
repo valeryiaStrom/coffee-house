@@ -1,0 +1,45 @@
+.mobile-app {
+    padding-bottom: 100px;
+}
+
+.mobile-app__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.mobila-app__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mobile-app__description {
+  color: $color-text-dark;
+}
+
+.mobile-app__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.mobile-app__button {
+  padding: 12px 20px;
+  border-radius: 100px;
+  border: 1px solid $color-border-dark;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-app__button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  
+    &_top {
+      @include font(1rem, normal, 600, 1.4rem);
+    }
+  }
