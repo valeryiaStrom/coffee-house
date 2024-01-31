@@ -1,6 +1,10 @@
-.coffee-svg {
+.icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.icon_coffee {
   background-image: url("../../images/icons/coffee-cup.svg");
-  display: block;
   width: 20px;
   height: 20px;
 }
