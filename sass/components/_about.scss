@@ -19,17 +19,24 @@
 
 .about__image-wrapper {
   display: flex;
+  border-radius: 20px;
+  overflow:hidden;
 }
 
 .about__image {
   width: 660px;
   object-fit: cover;
-  border-radius: 20px;
+  transform: scale(1.1);
+  @extend %transition;
   &_large {
     height: 590px;
   }
 
   &_small {
     height: 430px;
+  }
+
+  &:hover {
+    transform: scale(1);
   }
 }
