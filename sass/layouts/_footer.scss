@@ -25,6 +25,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  @extend %transition;
+
+  &:hover {
+    background-color: $color-bg-body;
+  }
 }
 
 .footer__contacts-title {
