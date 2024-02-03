@@ -1,5 +1,5 @@
 .mobile-app {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .mobile-app__wrapper {
@@ -35,16 +35,25 @@
 
   &:hover {
     background-color: $color-bg-container;
+    color: $color-text-light;
+
+    .icon_app-store {
+      background-image: url("../../images/icons/icon-app-store-hover.svg");
+    }
+
+    .icon_google-play {
+      background-image: url("../../images/icons/icon-google-play-hover.svg");
+    }
   }
 }
 
 .mobile-app__button-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  
-    &_top {
-      @include font(1rem, normal, 600, 1.4rem);
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+
+  &_top {
+    @include font(1rem, normal, 600, 1.4rem);
   }
+}

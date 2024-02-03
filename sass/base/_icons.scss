@@ -1,6 +1,7 @@
 .icon {
   display: inline-block;
   cursor: pointer;
+  @extend %transition;
 }
 
 .icon_coffee {
