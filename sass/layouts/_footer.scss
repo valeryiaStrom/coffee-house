@@ -41,7 +41,36 @@
 }
 
 .footer__contacts-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: $color-text-light;
   text-decoration: none;
   font-weight: 600;
+  position: relative;
+  &:last-child {
+    cursor: default;
+    &::after {
+      display: none;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: -4px;
+    background-color: $color-text-light;
+    @extend %transition;
+    opacity: 0;
+  }
+  &:hover::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: -4px;
+    background-color: $color-text-light;
+    opacity: 1;
+  }
 }

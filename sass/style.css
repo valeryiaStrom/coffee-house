@@ -411,7 +411,7 @@ p {
   margin: 0;
 }
 
-.navigation > li, .header__menu-link {
+.navigation > li, .footer__contacts-link:after, .header__menu-link {
   transition: all 0.3s ease-out;
 }
 
@@ -430,6 +430,7 @@ body {
   line-height: 2.4rem;
   color: #403f3d;
   background-color: #e1d4c9;
+  padding-bottom: 40px;
 }
 
 h1 {
@@ -504,6 +505,24 @@ h3 {
   background-image: url("../../images/icons/facebook.svg");
   width: 24px;
   height: 24px;
+}
+
+.icon_location {
+  background-image: url("../../images/icons/pin-alt.svg");
+  width: 20px;
+  height: 20px;
+}
+
+.icon_phone {
+  background-image: url("../../images/icons/phone.svg");
+  width: 20px;
+  height: 20px;
+}
+
+.icon_clock {
+  background-image: url("../../images/icons/clock.svg");
+  width: 20px;
+  height: 20px;
 }
 
 .link-button {
@@ -593,9 +612,37 @@ h3 {
 }
 
 .footer__contacts-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: #e1d4c9;
   text-decoration: none;
   font-weight: 600;
+  position: relative;
+}
+.footer__contacts-link:last-child {
+  cursor: default;
+}
+.footer__contacts-link:last-child::after {
+  display: none;
+}
+.footer__contacts-link:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  bottom: -4px;
+  background-color: #e1d4c9;
+  opacity: 0;
+}
+.footer__contacts-link:hover::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  bottom: -4px;
+  background-color: #e1d4c9;
+  opacity: 1;
 }
 
 .navigation {

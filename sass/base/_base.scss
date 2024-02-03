@@ -7,6 +7,7 @@ body {
   @extend %font-primary;
   color: $color-text-dark;
   background-color: $color-bg-body;
+  padding-bottom: 40px;
 }
 
 h1 { 
