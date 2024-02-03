@@ -719,7 +719,6 @@ h3 {
 .slider {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 40px;
 }
 
@@ -780,17 +779,22 @@ h3 {
 
 .slider__controls {
   display: flex;
+  justify-content: center;
+}
+
+.controls {
+  display: flex;
   gap: 12px;
 }
 
-.slider__control {
+.control {
   display: inline-block;
   width: 40px;
   height: 4px;
   border-radius: 100px;
   background-color: #c1b6ad;
 }
-.slider__control_active {
+.control_active {
   background-color: #665f55;
 }
 
