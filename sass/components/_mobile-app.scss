@@ -7,9 +7,18 @@
   justify-content: center;
   align-items: center;
   gap: 100px;
+
+  @include media-desktop-small {
+    gap: 0;
+  }
+
+  @include media-tablet-large {
+    flex-direction: column;
+    gap: 70px;
+  }
 }
 
-.mobila-app__content {
+.mobile-app__content {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -22,6 +31,10 @@
 .mobile-app__buttons {
   display: flex;
   gap: 20px;
+
+  @include media-mobile-large {
+    flex-direction: column;
+  }
 }
 
 .mobile-app__button {
@@ -32,6 +45,10 @@
   align-items: center;
   gap: 8px;
   @extend %transition;
+
+  @include media-mobile-large {
+    max-width: 200px;
+  }
 
   &:hover {
     background-color: $color-bg-container;
@@ -55,5 +72,25 @@
 
   &_top {
     @include font(1rem, normal, 600, 1.4rem);
+  }
+}
+
+.mobile-app__image {
+  width: 630px;
+  height: 630px;
+
+  @include media-desktop-small {
+    width: 560px;
+    object-fit: contain;
+  }
+
+  @include media-tablet-large {
+    width: 630px;
+    height: 630px;
+  }
+
+  @include media-mobile-large {
+    width: 348px;
+    height: 348px;
   }
 }

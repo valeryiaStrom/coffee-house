@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include media-tablet-small-2 {
+    justify-content: center;
+  }
 }
 
 .slider__arrow {
@@ -20,6 +24,10 @@
   border: 1px solid $color-border-dark;
   cursor: pointer;
   @extend %transition;
+
+  @include media-tablet-small-2 {
+    display: none;
+  }
 
   &:hover {
     background-color: $color-bg-container;
@@ -64,6 +72,13 @@
   }
   &:nth-child(3) {
     display: none;
+  }
+}
+
+.slide__image {
+  @include media-mobile-large {
+    width: 348px;
+    height: 348px;
   }
 }
 

@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+.header__navigation {
+  @include media-tablet-small {
+    display: none;
+  }
+}
+
 .header__menu-link {
   display: flex;
   gap: 8px;
@@ -21,5 +27,9 @@
   cursor: pointer;
   &:hover {
     border-bottom: 1px solid $color-text-dark;
+  }
+
+  @include media-tablet-small {
+    display: none;
   }
 }

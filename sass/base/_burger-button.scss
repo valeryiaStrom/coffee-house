@@ -1,0 +1,34 @@
+.burger-menu-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    border: 1px solid $color-border-dark;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    display: none;
+  
+    @include media-tablet-small {
+      display: flex;
+    }
+  }
+  
+  .burger-menu-btn__line {
+    display: inline-block;
+    width: 16px;
+    height: 1.5px;
+    background-color: $color-text-dark;
+    position: absolute;
+    top: calc( 50% - 0.75px - 4px - 0.75px );
+  
+    &:after {
+      display: inline-block;
+      position: absolute;
+      content: "";
+      height: 1.5px;
+      width: 100%;
+      bottom: -8px;
+      background-color: $color-text-dark;
+    }
+  }

@@ -4,6 +4,15 @@
   background-color: $color-bg-container;
   border-radius: 40px;
   gap: 100px;
+
+  @include media-tablet-small {
+    padding: 100px 60px;
+    flex-direction: column;
+  }
+
+  @include media-mobile-large {
+    padding: 60px 16px;
+  }
 }
 
 .footer__title {
@@ -33,11 +42,11 @@
     .icon_twitter {
       background-image: url("../../images/icons/twitter-hover.svg");
     }
-    
+
     .icon_instagram {
       background-image: url("../../images/icons/instagram-hover.svg");
     }
-    
+
     .icon_facebook {
       background-image: url("../../images/icons/facebook-hover.svg");
     }

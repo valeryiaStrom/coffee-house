@@ -1,4 +1,8 @@
 .wrapper {
-  width: $content-width;
+  width: $content-width-desktop;
   margin: 0 auto;
+
+  @include media-desktop-small {
+    width: $content-width;
+  }
 }

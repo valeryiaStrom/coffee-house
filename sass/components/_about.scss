@@ -9,18 +9,33 @@
 .about__gallery {
   display: flex;
   gap: 40px;
+  justify-content: center;
+
+  @include media-tablet-small {
+    flex-direction: column;
+  }
 }
 
 .about__gallery-col {
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @include media-desktop-small {
+    max-width: 50%;
+  }
+
+  @include media-tablet-small {
+    max-width: 100%;
+    gap: 0;
+    align-items: center;
+  }
 }
 
 .about__image-wrapper {
   display: flex;
   border-radius: 20px;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .about__image {
@@ -28,12 +43,19 @@
   object-fit: cover;
   transform: scale(1.1);
   @extend %transition;
+  @include media-mobile-large {
+    width: 348px;
+  }
+
   &_large {
     height: 590px;
   }
 
   &_small {
     height: 430px;
+    @include media-tablet-small {
+      display: none;
+    }
   }
 
   &:hover {

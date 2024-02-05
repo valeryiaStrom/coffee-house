@@ -8,14 +8,26 @@ body {
   color: $color-text-dark;
   background-color: $color-bg-body;
   padding-bottom: 40px;
+
+  @include media-mobile-large {
+    padding: 0 16px 40px 16px;
+  }
 }
 
-h1 { 
+h1 {
   @include font(7.2rem, normal, 600, 7.56rem);
+
+  @include media-mobile-large {
+    @include font(4.2rem, normal, 600, 4.83rem);
+  }
 }
 
 h2 {
   @include font(6rem, normal, 600, 7.5rem);
+
+  @include media-mobile-large {
+    @include font(3.2rem, normal, 600, 4rem);
+  }
 }
 
 h3 {

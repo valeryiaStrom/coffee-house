@@ -1,3 +1,4 @@
+// Colors
 $color-text-dark: #403f3d;
 $color-text-light: #e1d4c9;
 $color-text-accent: #b0907a;
@@ -9,10 +10,18 @@ $color-bg-backdrop: rgba(64, 63, 61, 0.8);
 $color-border-light: #c1b6ad;
 $color-border-dark: #665f55;
 
-$content-width: 1360px;
-$tablet-width: 768px;
+// Content width
+$content-width-desktop: 1360px;
+$content-width: 94%;
+
+// Breakpoints
+$desktop-small-width: 1440px;
+$tablet-large-width: 1080px;
+$tablet-small-width: 768px;
+$tablet-small-2-width: 700px;
 $mobile-large-width: 480px;
 $mobile-medium-width: 414px;
 $mobile-small-width: 320px;
 
+// Font size
 $font-size-root: 10px;
