@@ -15,25 +15,36 @@
   <body>
     <header class="header">
       <div class="wrapper header__wrapper">
-        <a href="/" class="logo">
+        <a href="./" class="logo">
           <span class="logo-svg"></span>
         </a>
         <nav class="header__navigation">
           <ul class="navigation">
-            <li><a href="#" class="navigation__link">Favorite coffee</a></li>
-            <li><a href="#" class="navigation__link">About</a></li>
-            <li><a href="#" class="navigation__link">Contact us</a></li>
+            <li>
+              <a href="./#favorite-coffee" class="navigation__link"
+                >Favorite coffee</a
+              >
+            </li>
+            <li><a href="./#about" class="navigation__link">About</a></li>
+            <li>
+              <a href="./menu.html#footer" class="navigation__link"
+                >Contact us</a
+              >
+            </li>
           </ul>
         </nav>
-        <a href="#" class="header__menu-link"
+        <a href="./menu.html" class="header__menu-link"
           ><span>Menu</span>
           <span class="icon icon_coffee"></span>
         </a>
+        <span class="header__burger-menu-btn burger-menu-btn"
+          ><span class="burger-menu-btn__line"></span
+        ></span>
       </div>
     </header>
 
     <main>
-      <section class="menu">
+      <section class="menu" id="menu">
         <div class="wrapper">
           <h1 class="menu__title">
             Behind each of our cups hides an
@@ -192,7 +203,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="wrapper footer__wrapper">
         <div class="footer__content">
           <h2 class="footer__title">
@@ -200,13 +211,13 @@
             <span class="text-accented">It’s coffee time!</span>
           </h2>
           <div class="footer__social-links">
-            <a class="footer__social-link">
+            <a class="footer__social-link" href="https://twitter.com/" target="_blank">
               <span class="icon icon_twitter"></span>
             </a>
-            <a class="footer__social-link">
+            <a class="footer__social-link" href="https://instagram.com/" target="_blank">
               <span class="icon icon_instagram"></span>
             </a>
-            <a class="footer__social-link">
+            <a class="footer__social-link" href="https://facebook.com/" target="_blank">
               <span class="icon icon_facebook"></span>
             </a>
           </div>
