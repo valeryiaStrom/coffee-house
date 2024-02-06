@@ -1,0 +1,40 @@
+.menu-item {
+  border: 1px solid $color-border-light;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    @include hover {
+      .menu-item__image {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.menu-item__image-wrapper {
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.menu-item__image {
+  transform: scale(1.1);
+  @extend %transition;
+}
+
+.menu-item__content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.menu-item__text {
+}
+
+.menu-item__title {
+  margin-bottom: 12px;
+}
