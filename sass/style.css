@@ -547,6 +547,24 @@ h3 {
   height: 20px;
 }
 
+.icon_menu-tab-coffee {
+  background-image: url("../../images/icons/menu_tab_coffee_icon.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.icon_menu-tab-tea {
+  background-image: url("../../images/icons/menu_tab_tea_icon.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.icon_menu-tab-dessert {
+  background-image: url("../../images/icons/menu_tab_dessert_icon.svg");
+  width: 16px;
+  height: 16px;
+}
+
 .link-button {
   min-width: 200px;
   border-radius: 100px;
@@ -1220,6 +1238,8 @@ h3 {
 
 .tab__icon {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   border-radius: 100px;
