@@ -1172,7 +1172,7 @@ h3 {
 
 .menu__title {
   text-align: center;
-  width: 59%;
+  width: 62%;
   margin: 0 auto 40px auto;
 }
 
@@ -1267,6 +1267,9 @@ h3 {
 .menu-item__image-wrapper {
   border-radius: 40px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-item__image {

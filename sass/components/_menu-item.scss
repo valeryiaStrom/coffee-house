@@ -17,6 +17,9 @@
 .menu-item__image-wrapper {
   border-radius: 40px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-item__image {
