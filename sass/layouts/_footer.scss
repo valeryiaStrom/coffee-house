@@ -37,18 +37,20 @@
   @extend %transition;
 
   &:hover {
-    background-color: $color-bg-body;
+    @include hover {
+      background-color: $color-bg-body;
 
-    .icon_twitter {
-      background-image: url("../../images/icons/twitter-hover.svg");
-    }
+      .icon_twitter {
+        background-image: url("../../images/icons/twitter-hover.svg");
+      }
 
-    .icon_instagram {
-      background-image: url("../../images/icons/instagram-hover.svg");
-    }
+      .icon_instagram {
+        background-image: url("../../images/icons/instagram-hover.svg");
+      }
 
-    .icon_facebook {
-      background-image: url("../../images/icons/facebook-hover.svg");
+      .icon_facebook {
+        background-image: url("../../images/icons/facebook-hover.svg");
+      }
     }
   }
 }
@@ -91,12 +93,14 @@
     opacity: 0;
   }
   &:hover::after {
-    position: absolute;
-    content: "";
-    height: 2px;
-    width: 100%;
-    bottom: -4px;
-    background-color: $color-text-light;
-    opacity: 1;
+    @include hover {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 100%;
+      bottom: -4px;
+      background-color: $color-text-light;
+      opacity: 1;
+    }
   }
 }

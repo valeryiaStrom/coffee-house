@@ -9,7 +9,9 @@
   cursor: pointer;
   @extend %transition;
   &:hover {
-    border-bottom: 1px solid $color-text-dark;
+    @include hover {
+      border-bottom: 1px solid $color-text-dark;
+    }
   }
 }
 

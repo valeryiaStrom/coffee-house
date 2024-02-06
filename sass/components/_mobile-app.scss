@@ -51,15 +51,17 @@
   }
 
   &:hover {
-    background-color: $color-bg-container;
-    color: $color-text-light;
-
-    .icon_app-store {
-      background-image: url("../../images/icons/icon-app-store-hover.svg");
-    }
-
-    .icon_google-play {
-      background-image: url("../../images/icons/icon-google-play-hover.svg");
+    @include hover {
+      background-color: $color-bg-container;
+      color: $color-text-light;
+  
+      .icon_app-store {
+        background-image: url("../../images/icons/icon-app-store-hover.svg");
+      }
+  
+      .icon_google-play {
+        background-image: url("../../images/icons/icon-google-play-hover.svg");
+      }
     }
   }
 }

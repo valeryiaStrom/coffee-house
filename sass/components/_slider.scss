@@ -30,14 +30,16 @@
   }
 
   &:hover {
-    background-color: $color-bg-container;
+    @include hover {
+      background-color: $color-bg-container;
 
-    .slider__arrow-icon_left {
-      background-image: url("../../images/icons/arrow-left-hover.svg");
-    }
+      .slider__arrow-icon_left {
+        background-image: url("../../images/icons/arrow-left-hover.svg");
+      }
 
-    .slider__arrow-icon_right {
-      background-image: url("../../images/icons/arrow-right-hover.svg");
+      .slider__arrow-icon_right {
+        background-image: url("../../images/icons/arrow-right-hover.svg");
+      }
     }
   }
 }
@@ -61,7 +63,6 @@
 
 .slide {
   display: flex;
-  // width: 480px;
   max-width: 480px;
   flex-direction: column;
   align-items: center;

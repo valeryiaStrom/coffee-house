@@ -421,6 +421,7 @@ body {
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -632,8 +633,10 @@ h3 {
   border-bottom: 1px solid transparent;
   cursor: pointer;
 }
-.header__menu-link:hover {
-  border-bottom: 1px solid #403f3d;
+@media (hover: hover) {
+  .header__menu-link:hover {
+    border-bottom: 1px solid #403f3d;
+  }
 }
 @media screen and (max-width: 768px) {
   .header__menu-link {
@@ -680,17 +683,19 @@ h3 {
   justify-content: center;
   cursor: pointer;
 }
-.footer__social-link:hover {
-  background-color: #e1d4c9;
-}
-.footer__social-link:hover .icon_twitter {
-  background-image: url("../../images/icons/twitter-hover.svg");
-}
-.footer__social-link:hover .icon_instagram {
-  background-image: url("../../images/icons/instagram-hover.svg");
-}
-.footer__social-link:hover .icon_facebook {
-  background-image: url("../../images/icons/facebook-hover.svg");
+@media (hover: hover) {
+  .footer__social-link:hover {
+    background-color: #e1d4c9;
+  }
+  .footer__social-link:hover .icon_twitter {
+    background-image: url("../../images/icons/twitter-hover.svg");
+  }
+  .footer__social-link:hover .icon_instagram {
+    background-image: url("../../images/icons/instagram-hover.svg");
+  }
+  .footer__social-link:hover .icon_facebook {
+    background-image: url("../../images/icons/facebook-hover.svg");
+  }
 }
 
 .footer__contacts-title {
@@ -730,14 +735,16 @@ h3 {
   background-color: #e1d4c9;
   opacity: 0;
 }
-.footer__contacts-link:hover::after {
-  position: absolute;
-  content: "";
-  height: 2px;
-  width: 100%;
-  bottom: -4px;
-  background-color: #e1d4c9;
-  opacity: 1;
+@media (hover: hover) {
+  .footer__contacts-link:hover::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    bottom: -4px;
+    background-color: #e1d4c9;
+    opacity: 1;
+  }
 }
 
 .navigation {
@@ -750,8 +757,10 @@ h3 {
   border-bottom: 1px solid transparent;
   cursor: pointer;
 }
-.navigation > li:hover {
-  border-bottom: 1px solid #403f3d;
+@media (hover: hover) {
+  .navigation > li:hover {
+    border-bottom: 1px solid #403f3d;
+  }
 }
 
 .navigation__link {
@@ -819,16 +828,18 @@ h3 {
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   width: 200px;
 }
-.hero__button:hover {
-  box-shadow: none;
-}
-.hero__button:hover .icon_coffee {
-  visibility: visible;
-  opacity: 1;
-}
-.hero__button:hover .hero__buttton-text {
-  margin-left: 0;
-  margin-right: 8px;
+@media (hover: hover) {
+  .hero__button:hover {
+    box-shadow: none;
+  }
+  .hero__button:hover .icon_coffee {
+    visibility: visible;
+    opacity: 1;
+  }
+  .hero__button:hover .hero__buttton-text {
+    margin-left: 0;
+    margin-right: 8px;
+  }
 }
 .hero__button .icon_coffee {
   transition: all 0.8s ease;
@@ -883,14 +894,16 @@ h3 {
     display: none;
   }
 }
-.slider__arrow:hover {
-  background-color: #665f55;
-}
-.slider__arrow:hover .slider__arrow-icon_left {
-  background-image: url("../../images/icons/arrow-left-hover.svg");
-}
-.slider__arrow:hover .slider__arrow-icon_right {
-  background-image: url("../../images/icons/arrow-right-hover.svg");
+@media (hover: hover) {
+  .slider__arrow:hover {
+    background-color: #665f55;
+  }
+  .slider__arrow:hover .slider__arrow-icon_left {
+    background-image: url("../../images/icons/arrow-left-hover.svg");
+  }
+  .slider__arrow:hover .slider__arrow-icon_right {
+    background-image: url("../../images/icons/arrow-right-hover.svg");
+  }
 }
 
 .slider__arrow-icon {
@@ -1024,8 +1037,10 @@ h3 {
     display: none;
   }
 }
-.about__image:hover {
-  transform: scale(1);
+@media (hover: hover) {
+  .about__image:hover {
+    transform: scale(1);
+  }
 }
 
 .mobile-app {
@@ -1083,15 +1098,17 @@ h3 {
     max-width: 200px;
   }
 }
-.mobile-app__button:hover {
-  background-color: #665f55;
-  color: #e1d4c9;
-}
-.mobile-app__button:hover .icon_app-store {
-  background-image: url("../../images/icons/icon-app-store-hover.svg");
-}
-.mobile-app__button:hover .icon_google-play {
-  background-image: url("../../images/icons/icon-google-play-hover.svg");
+@media (hover: hover) {
+  .mobile-app__button:hover {
+    background-color: #665f55;
+    color: #e1d4c9;
+  }
+  .mobile-app__button:hover .icon_app-store {
+    background-image: url("../../images/icons/icon-app-store-hover.svg");
+  }
+  .mobile-app__button:hover .icon_google-play {
+    background-image: url("../../images/icons/icon-google-play-hover.svg");
+  }
 }
 
 .mobile-app__button-text {

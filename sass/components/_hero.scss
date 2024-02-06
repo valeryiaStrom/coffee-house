@@ -50,16 +50,19 @@
   width: 200px;
 
   &:hover {
-    box-shadow: none;
 
-    .icon_coffee {
-      visibility: visible;
-      opacity: 1;
-    }
+    @include hover {
+      box-shadow: none;
 
-    .hero__buttton-text {
-      margin-left: 0;
-      margin-right: 8px;
+      .icon_coffee {
+        visibility: visible;
+        opacity: 1;
+      }
+  
+      .hero__buttton-text {
+        margin-left: 0;
+        margin-right: 8px;
+      }
     }
   }
 
