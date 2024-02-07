@@ -482,7 +482,7 @@ h3 {
 }
 
 .logo-svg {
-  background-image: url("../../images/logo.svg");
+  background-image: url("../../src/images/logo.svg");
   display: block;
   width: 100px;
   height: 60px;
@@ -494,73 +494,73 @@ h3 {
 }
 
 .icon_coffee {
-  background-image: url("../../images/icons/coffee-cup.svg");
+  background-image: url("../../src/images/icons/coffee-cup.svg");
   width: 20px;
   height: 20px;
 }
 
 .icon_app-store {
-  background-image: url("../../images/icons/icon-app-store.svg");
+  background-image: url("../../src/images/icons/icon-app-store.svg");
   width: 36px;
   height: 36px;
 }
 
 .icon_google-play {
-  background-image: url("../../images/icons/icon-google-play.svg");
+  background-image: url("../../src/images/icons/icon-google-play.svg");
   width: 36px;
   height: 36px;
 }
 
 .icon_twitter {
-  background-image: url("../../images/icons/twitter.svg");
+  background-image: url("../../src/images/icons/twitter.svg");
   width: 24px;
   height: 24px;
 }
 
 .icon_instagram {
-  background-image: url("../../images/icons/instagram.svg");
+  background-image: url("../../src/images/icons/instagram.svg");
   width: 24px;
   height: 24px;
 }
 
 .icon_facebook {
-  background-image: url("../../images/icons/facebook.svg");
+  background-image: url("../../src/images/icons/facebook.svg");
   width: 24px;
   height: 24px;
 }
 
 .icon_location {
-  background-image: url("../../images/icons/pin-alt.svg");
+  background-image: url("../../src/images/icons/pin-alt.svg");
   width: 20px;
   height: 20px;
 }
 
 .icon_phone {
-  background-image: url("../../images/icons/phone.svg");
+  background-image: url("../../src/images/icons/phone.svg");
   width: 20px;
   height: 20px;
 }
 
 .icon_clock {
-  background-image: url("../../images/icons/clock.svg");
+  background-image: url("../../src/images/icons/clock.svg");
   width: 20px;
   height: 20px;
 }
 
 .icon_menu-tab-coffee {
-  background-image: url("../../images/icons/menu_tab_coffee_icon.svg");
+  background-image: url("../../src/images/icons/menu_tab_coffee_icon.svg");
   width: 16px;
   height: 16px;
 }
 
 .icon_menu-tab-tea {
-  background-image: url("../../images/icons/menu_tab_tea_icon.svg");
+  background-image: url("../../src/images/icons/menu_tab_tea_icon.svg");
   width: 16px;
   height: 16px;
 }
 
 .icon_menu-tab-dessert {
-  background-image: url("../../images/icons/menu_tab_dessert_icon.svg");
+  background-image: url("../../src/images/icons/menu_tab_dessert_icon.svg");
   width: 16px;
   height: 16px;
 }
@@ -706,13 +706,13 @@ h3 {
     background-color: #e1d4c9;
   }
   .footer__social-link:hover .icon_twitter {
-    background-image: url("../../images/icons/twitter-hover.svg");
+    background-image: url("../../src/images/icons/twitter-hover.svg");
   }
   .footer__social-link:hover .icon_instagram {
-    background-image: url("../../images/icons/instagram-hover.svg");
+    background-image: url("../../src/images/icons/instagram-hover.svg");
   }
   .footer__social-link:hover .icon_facebook {
-    background-image: url("../../images/icons/facebook-hover.svg");
+    background-image: url("../../src/images/icons/facebook-hover.svg");
   }
 }
 
@@ -791,7 +791,7 @@ h3 {
 
 .hero__wrapper {
   padding: 100px;
-  background-image: url("../../images/hero/img-hero.png");
+  background-image: url("../../src/images/hero/img-hero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -917,10 +917,10 @@ h3 {
     background-color: #665f55;
   }
   .slider__arrow:hover .slider__arrow-icon_left {
-    background-image: url("../../images/icons/arrow-left-hover.svg");
+    background-image: url("../../src/images/icons/arrow-left-hover.svg");
   }
   .slider__arrow:hover .slider__arrow-icon_right {
-    background-image: url("../../images/icons/arrow-right-hover.svg");
+    background-image: url("../../src/images/icons/arrow-right-hover.svg");
   }
 }
 
@@ -930,11 +930,11 @@ h3 {
 }
 
 .slider__arrow-icon_left {
-  background-image: url("../../images/icons/arrow-left.svg");
+  background-image: url("../../src/images/icons/arrow-left.svg");
 }
 
 .slider__arrow-icon_right {
-  background-image: url("../../images/icons/arrow-right.svg");
+  background-image: url("../../src/images/icons/arrow-right.svg");
 }
 
 .slider__slides {
@@ -1035,8 +1035,7 @@ h3 {
 
 .about__image {
   width: 660px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transform: scale(1.1);
 }
 @media screen and (max-width: 480px) {
@@ -1122,10 +1121,10 @@ h3 {
     color: #e1d4c9;
   }
   .mobile-app__button:hover .icon_app-store {
-    background-image: url("../../images/icons/icon-app-store-hover.svg");
+    background-image: url("../../src/images/icons/icon-app-store-hover.svg");
   }
   .mobile-app__button:hover .icon_google-play {
-    background-image: url("../../images/icons/icon-google-play-hover.svg");
+    background-image: url("../../src/images/icons/icon-google-play-hover.svg");
   }
 }
 
@@ -1149,8 +1148,7 @@ h3 {
 @media screen and (max-width: 1440px) {
   .mobile-app__image {
     width: 560px;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
 }
 @media screen and (max-width: 1080px) {
@@ -1288,4 +1286,4 @@ h3 {
 
 .menu-item__title {
   margin-bottom: 12px;
-}/*# sourceMappingURL=style.css.map */
+}
