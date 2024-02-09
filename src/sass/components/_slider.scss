@@ -59,6 +59,10 @@
 
 .slider__slides {
   display: flex;
+  // ===added
+  max-width: 480px;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
 }
 
 .slide {
@@ -68,12 +72,12 @@
   align-items: center;
   gap: 20px;
 
-  &:nth-child(2) {
-    display: none;
-  }
-  &:nth-child(3) {
-    display: none;
-  }
+  // &:nth-child(2) {
+  //   display: none;
+  // }
+  // &:nth-child(3) {
+  //   display: none;
+  // }
 }
 
 .slide__image {
