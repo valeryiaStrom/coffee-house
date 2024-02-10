@@ -1,8 +1,10 @@
 import { products } from "./data/products";
 import { Tabs } from "./js/tabs";
+import { MenuItemService } from "./js/menu-item-service";
 import { MenuContainer } from "./js/menu-container";
 import { MenuItem } from "./js/menu-item";
 
+const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
 const tabs = new Tabs();
 
@@ -11,8 +13,8 @@ window.onload = function () {
   const defaultSelectCategory = tabs.getSelectedTabCategory();
 
   // filter products data by category
-  const productsData = products.filter(
-    (productData) => productData.category === defaultSelectCategory
+  const productsData = menuItemService.filterDataByCategory(
+    defaultSelectCategory
   );
 
   // create menu items from filtered data
@@ -37,9 +39,7 @@ window.onload = function () {
       tabs.selectTab(clickedTab);
 
       // filter products data by category
-      const productsData = products.filter(
-        (productData) => productData.category === clickedTabId
-      );
+      const productsData = menuItemService.filterDataByCategory(clickedTabId);
 
       // create menu items from filtered data
       const menuItems = productsData.map((productData) => {
