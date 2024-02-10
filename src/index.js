@@ -4,6 +4,7 @@ const slidesWrapper = document.querySelector(".slider__slides");
 const slidesContainer = document.querySelector('.slides');
 const slides = document.querySelectorAll(".slide");
 const SLIDE_ACTIVE_CN = "slide_active";
+import { MenuItem } from "./js/MenuItem";
 
 window.onload = function () {
   console.log("Hello!");
