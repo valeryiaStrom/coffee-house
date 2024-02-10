@@ -545,6 +545,7 @@ h3 {
   background-image: url("../../src/images/icons/clock.svg");
   width: 20px;
   height: 20px;
+  cursor: default;
 }
 
 .icon_menu-tab-coffee {
