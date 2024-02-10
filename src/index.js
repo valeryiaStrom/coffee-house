@@ -22,14 +22,13 @@ window.onload = function () {
   });
 
   // render menu items
-  // menuItemsContainer.self.append(...menuItems);
   menuItemsContainer.renderMenuItems(menuItems);
 
   // handle menu tabs click
   tabs.tabsContainer.addEventListener("click", (e) => {
-    if (e.target.closest('.tab')) {
-      const clickedTab = e.target.closest('.tab');
-      const clickedTabId = clickedTab.getAttribute('data-id');
+    if (e.target.closest(".tab")) {
+      const clickedTab = e.target.closest(".tab");
+      const clickedTabId = clickedTab.getAttribute("data-id");
 
       // unselect all tabs
       tabs.unselectAllTabs();
@@ -43,12 +42,10 @@ window.onload = function () {
       );
 
       // create menu items from filtered data
-      const menuItems = Array.from(
-        productsData.map((productData) => {
-          const menuItem = new MenuItem(productData);
-          return menuItem.createMenuItemElement();
-        })
-      );
+      const menuItems = productsData.map((productData) => {
+        const menuItem = new MenuItem(productData);
+        return menuItem.createMenuItemElement();
+      });
 
       // clear displayed menu items
       menuItemsContainer.clear();
