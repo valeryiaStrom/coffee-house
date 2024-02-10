@@ -1,28 +1,60 @@
-const sliderArrowLeft = document.querySelector(".slider__arrow_left");
-const sliderArrowRight = document.querySelector(".slider__arrow_right");
-const slidesWrapper = document.querySelector(".slider__slides");
-const slidesContainer = document.querySelector('.slides');
-const slides = document.querySelectorAll(".slide");
-const SLIDE_ACTIVE_CN = "slide_active";
-import { MenuItem } from "./js/MenuItem";
+import { products } from "./data/products";
+import { Tabs } from "./js/tabs";
+import { MenuContainer } from "./js/menu-container";
+import { MenuItem } from "./js/menu-item";
+
+const menuItemsContainer = new MenuContainer();
+const tabs = new Tabs();
 
 window.onload = function () {
-  console.log("Hello!");
+  // render menu items by default selected category
+  const defaultSelectCategory = tabs.getSelectedTabCategory();
 
-  // addSliderHandler();
+  // filter products data by category
+  const productsData = products.filter(
+    (productData) => productData.category === defaultSelectCategory
+  );
+
+  // create menu items from filtered data
+  const menuItems = productsData.map((productData) => {
+    const menuItem = new MenuItem(productData);
+    return menuItem.createMenuItemElement();
+  });
+
+  // render menu items
+  // menuItemsContainer.self.append(...menuItems);
+  menuItemsContainer.renderMenuItems(menuItems);
+
+  // handle menu tabs click
+  tabs.tabsContainer.addEventListener("click", (e) => {
+    if (e.target.closest('.tab')) {
+      const clickedTab = e.target.closest('.tab');
+      const clickedTabId = clickedTab.getAttribute('data-id');
+
+      // unselect all tabs
+      tabs.unselectAllTabs();
+
+      // select clicked tab
+      tabs.selectTab(clickedTab);
+
+      // filter products data by category
+      const productsData = products.filter(
+        (productData) => productData.category === clickedTabId
+      );
+
+      // create menu items from filtered data
+      const menuItems = Array.from(
+        productsData.map((productData) => {
+          const menuItem = new MenuItem(productData);
+          return menuItem.createMenuItemElement();
+        })
+      );
+
+      // clear displayed menu items
+      menuItemsContainer.clear();
+
+      // render menu items
+      menuItemsContainer.renderMenuItems(menuItems);
+    }
+  });
 };
-
-// const addSliderHandler = () => {
-//   sliderArrowRight.addEventListener("click", (e) => {
-//     console.log(e);
-//     console.log("right arrow was clicked");
-//     slides.forEach((slide) => {
-//       if (slide.classList.contains(SLIDE_ACTIVE)) {
-//         slide.classList.remove(SLIDE_ACTIVE);
-//         // slide.style.transform = "translateX(-100%)";
-//         slidesContainer.style.transform = "translateX(-100%)";
-
-//       }
-//     });
-//   });
-// };
