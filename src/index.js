@@ -1,12 +1,12 @@
 import { products } from "./data/products";
-import { Tabs } from "./js/tabs";
+import { MenuTabs } from "./js/menu-tabs";
 import { MenuItemService } from "./js/menu-item-service";
 import { MenuContainer } from "./js/menu-container";
 import { MenuItem } from "./js/menu-item";
 
 const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
-const tabs = new Tabs();
+const tabs = new MenuTabs();
 
 window.onload = function () {
   // render menu items by default selected category

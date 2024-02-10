@@ -1,4 +1,4 @@
-export class Tabs {
+export class MenuTabs {
   constructor() {}
 
   get tabsContainer() {
@@ -8,18 +8,6 @@ export class Tabs {
   get tabs() {
     return document.querySelectorAll(".tab");
   }
-
-  //   addClickEventListener() {
-  //     this.tabsContainer.addEventListener("click", (e) => {
-  //       if (e.target.classList.contains("tab")) {
-  //         const clickedTab = e.target;
-  //         // unselect all tabs
-  //         this.unselectAllTabs();
-  //         // select clicked tab
-  //         this.selectTab(clickedTab);
-  //       }
-  //     });
-  //   }
 
   unselectAllTabs() {
     this.tabs.forEach((tab) => {
