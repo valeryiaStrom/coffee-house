@@ -19,7 +19,33 @@ export class MenuItemModal {
     this.additives = additives;
   }
 
-  createModalTemolate() {
-    
+  renderModal() {
+    this.createOverlay();
+    this.createModalElement();
+    this.bindEvents();
+  }
+
+  createOverlay() {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    document.body.append(overlay);
+  }
+
+  createModalElement() {}
+
+  createModalTemplate() {}
+
+  bindEvents() {
+    this.overlay.addEventListener("click", this.closeModal);
+  }
+
+  get overlay() {
+    return document.querySelector(".overlay");
+  }
+
+  closeModal = (e) => {
+    if (e.target.classList.contains("overlay") ||e.target.classList.contains("modal__close-btn")) {
+      this.overlay.remove();
+    }
   }
 }

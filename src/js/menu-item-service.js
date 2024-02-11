@@ -1,4 +1,4 @@
-export class MenItemService {
+export class MenuItemService {
   constructor(data) {
     this.data = data;
   }

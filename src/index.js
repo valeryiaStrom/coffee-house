@@ -3,12 +3,16 @@ import { MenuTabs } from "./js/menu-tabs";
 import { MenuItemService } from "./js/menu-item-service";
 import { MenuContainer } from "./js/menu-container";
 import { MenuItem } from "./js/menu-item";
+import { MenuItemModal } from "./js/menu-item-modal";
+import { ModalService } from "./js/modal-service";
 
 const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
 const tabs = new MenuTabs();
+const modalService = new ModalService(products);
 
 window.onload = function () {
+  console.log("Hello");
   // render menu items by default selected category
   const defaultSelectCategory = tabs.getSelectedTabCategory();
 
@@ -52,6 +56,23 @@ window.onload = function () {
 
       // render menu items
       menuItemsContainer.renderMenuItems(menuItems);
+    }
+  });
+
+  // handle menu item click
+  menuItemsContainer.self.addEventListener("click", (e) => {
+    if (e.target.closest(".menu__item")) {
+      console.log("menu item was clicked");
+      const clickedMenuItem = e.target.closest(".menu__item");
+      const clickedMenuItemId = clickedMenuItem.getAttribute("data-id");
+      console.log(clickedMenuItemId);
+
+      // get modal data by id
+      const data = modalService.getDataItemById(clickedMenuItemId);
+
+      // render modal
+      const modal = new MenuItemModal(data);
+      modal.renderModal();
     }
   });
 };
