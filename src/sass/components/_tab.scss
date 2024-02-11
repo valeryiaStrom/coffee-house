@@ -6,6 +6,7 @@
   border: 1px solid $color-border-light;
   border-radius: 100px;
   cursor: pointer;
+  @extend %transition;
 
   &_active {
     background-color: $color-bg-container;
