@@ -1,0 +1,85 @@
+.modal {
+  background-color: $color-bg-body;
+  display: flex;
+  border-radius: 40px;
+  padding: 16px;
+  max-width: 800px;
+}
+
+.modal__image {
+  width: 310px;
+  height: 310px;
+  border-radius: 40px;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 0 0 20px;
+}
+
+.modal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal__sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__sizes-tabs {
+  gap: 8px;
+}
+
+.modal__additivies {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__additivies-tabs {
+  gap: 8px;
+}
+
+.modal__total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__total-label {
+  @include font(2.4rem, normal, 600, 3rem);
+}
+
+.modal__alert {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 12px 0 12px 0;
+  border-top: 1px solid $color-border-light;
+}
+
+.modal__alert-text {
+  @include font(1rem, normal, 600, 1.4rem);
+}
+
+.modal__close-btn {
+  border-radius: 100px;
+  border: 1px solid $color-border-dark;
+  background-color: $color-bg-body;
+  padding: 10px 78px 10px 78px;
+  @include font(1.6rem, normal, 600, 2.4rem);
+  color: $color-text-dark;
+  @extend %transition;
+
+  &:hover {
+    @include hover {
+      background-color: $color-bg-container;
+      border: 1px solid $color-bg-container;
+      color: $color-text-light;
+    }
+  }
+}

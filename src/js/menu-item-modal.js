@@ -20,9 +20,11 @@ export class MenuItemModal {
   }
 
   renderModal() {
+    const template = this.createModalTemplate();
     this.createOverlay();
     this.createModalElement();
     this.bindEvents();
+    this.openModal();
   }
 
   createOverlay() {
@@ -43,9 +45,20 @@ export class MenuItemModal {
     return document.querySelector(".overlay");
   }
 
+  get closeBtn() {
+    return document.querySelector('.modal__close-btn');
+  }
+
+  openModal() {
+    document.body.append(this.overlay);
+  }
+
   closeModal = (e) => {
-    if (e.target.classList.contains("overlay") ||e.target.classList.contains("modal__close-btn")) {
+    if (
+      e.target.classList.contains("overlay") ||
+      e.target.classList.contains("modal__close-btn")
+    ) {
       this.overlay.remove();
     }
-  }
+  };
 }
