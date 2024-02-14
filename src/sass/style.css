@@ -890,8 +890,7 @@ h3 {
 .slider__carousel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  gap: 40px;
 }
 @media screen and (max-width: 700px) {
   .slider__carousel {
@@ -908,6 +907,7 @@ h3 {
   border-radius: 100px;
   border: 1px solid #665f55;
   cursor: pointer;
+  flex-shrink: 0;
 }
 @media screen and (max-width: 700px) {
   .slider__arrow {
@@ -942,29 +942,33 @@ h3 {
 .slider__slides {
   flex-grow: 1;
   display: flex;
-  justify-content: center;
-}
-
-.slides {
-  display: flex;
-  max-width: 480px;
-  overflow: hidden;
-  transition: all 1s ease-in-out;
-  justify-content: space-between;
+  overflow-x: scroll;
+  margin: 0;
 }
 
 .slide {
   display: flex;
-  max-width: 480px;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  width: 100%;
+  flex-shrink: 0;
+  justify-content: center;
   transition: all 1s ease-in-out;
 }
 .slide_active {
   transform: translateX(0);
 }
 
+.slide__content {
+  display: flex;
+  max-width: 480px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.slide__image {
+  width: 480px;
+  height: 480px;
+}
 @media screen and (max-width: 480px) {
   .slide__image {
     width: 348px;
@@ -972,7 +976,7 @@ h3 {
   }
 }
 
-.slide__content {
+.slide__text {
   display: flex;
   flex-direction: column;
   align-items: center;

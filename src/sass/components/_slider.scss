@@ -7,8 +7,9 @@
 .slider__carousel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  gap: 40px;
+  // justify-content: space-between;
+  // overflow: hidden;
 
   @include media-tablet-small-2 {
     justify-content: center;
@@ -25,6 +26,7 @@
   border: 1px solid $color-border-dark;
   cursor: pointer;
   @extend %transition;
+  flex-shrink: 0;
 
   @include media-tablet-small-2 {
     display: none;
@@ -66,25 +68,30 @@
   // transition: all 1s ease-in-out;
   flex-grow: 1;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  overflow-x: scroll;
+  margin: 0;
 }
 
 // TODO: delete this element and its styles?
-.slides {
-  display: flex;
-  // ===added
-  max-width: 480px;
-  overflow: hidden;
-  transition: all 1s ease-in-out;
-  justify-content: space-between;
-}
+// .slides {
+//   display: flex;
+//   // ===added
+//   max-width: 480px;
+//   overflow: hidden;
+//   transition: all 1s ease-in-out;
+//   justify-content: space-between;
+// }
 
 .slide {
   display: flex;
-  max-width: 480px;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  // max-width: 480px;
+  width: 100%;
+  flex-shrink: 0;
+  // flex-direction: column;
+  // align-items: center;
+  // gap: 20px;
+  justify-content: center;
   transition: all 1s ease-in-out;
 
   // &:nth-child(2) {
@@ -99,14 +106,26 @@
   }
 }
 
+.slide__content {
+  display: flex;
+  max-width: 480px;
+  // width: 100%;
+  // flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .slide__image {
+  width: 480px;
+  height: 480px;
   @include media-mobile-large {
     width: 348px;
     height: 348px;
   }
 }
 
-.slide__content {
+.slide__text {
   display: flex;
   flex-direction: column;
   align-items: center;
