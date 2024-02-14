@@ -411,7 +411,7 @@ p {
   margin: 0;
 }
 
-.modal__close-btn, .menu-item__image, .tab, .mobile-app__button, .about__image, .slider__arrow, .hero__button .hero__buttton-text, .hero__button, .navigation > li, .footer__contacts-link:after, .footer__social-link, .header__menu-link, .icon {
+.modal__close-btn, .menu-item__image, .tab, .mobile-app__button, .about__image, .slider__arrow, .hero__button .hero__buttton-text, .hero__button, .navigation__item, .footer__contacts-link:after, .footer__social-link, .header__menu-link, .icon {
   transition: all 0.3s ease-out;
 }
 
@@ -781,12 +781,17 @@ h3 {
   margin: 0;
 }
 
-.navigation > li {
+.navigation__item {
   border-bottom: 1px solid transparent;
   cursor: pointer;
 }
 @media (hover: hover) {
-  .navigation > li:hover {
+  .navigation__item:hover {
+    border-bottom: 1px solid #403f3d;
+  }
+}
+@media (hover: hover) {
+  .navigation__item_active {
     border-bottom: 1px solid #403f3d;
   }
 }
