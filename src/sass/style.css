@@ -627,6 +627,15 @@ h3 {
 
 .header {
   padding: 20px 0 20px 0;
+  position: sticky;
+  top: 0;
+  background-color: #e1d4c9;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    position: static;
+  }
 }
 
 .header__wrapper {
