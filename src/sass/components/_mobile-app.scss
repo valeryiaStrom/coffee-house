@@ -1,7 +1,3 @@
-.mobile-app {
-  padding-bottom: 100px;
-}
-
 .mobile-app__wrapper {
   display: flex;
   justify-content: center;
@@ -54,11 +50,11 @@
     @include hover {
       background-color: $color-bg-container;
       color: $color-text-light;
-  
+
       .icon_app-store {
         background-image: url("../../src/images/icons/icon-app-store-hover.svg");
       }
-  
+
       .icon_google-play {
         background-image: url("../../src/images/icons/icon-google-play-hover.svg");
       }
