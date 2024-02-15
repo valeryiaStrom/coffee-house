@@ -18,7 +18,7 @@ window.onload = function () {
   const isMenuPage = window.location.href.includes("menu");
   if (!isMenuPage) {
     console.log("home page: " + window.location.href);
-    slider.bindEvents();
+    slider.init();
   } else {
     console.log("menu page");
     // render menu items by default selected category

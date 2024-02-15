@@ -12,7 +12,7 @@ export class Slider {
     if (e.target.closest(".slider__arrow_left")) {
       const activeSlideIndex = this.getActiveSlideIndex();
       this.unmarkAllSlides();
-      this.moveSlideRight(activeSlideIndex);
+      this.moveSlidesRight(activeSlideIndex);
     }
   };
 
@@ -20,7 +20,7 @@ export class Slider {
     if (e.target.closest(".slider__arrow_right")) {
       let activeSlideIndex = this.getActiveSlideIndex();
       this.unmarkAllSlides();
-      this.moveSlideLeft(activeSlideIndex);
+      this.moveSlidesLeft(activeSlideIndex);
     }
   };
 
@@ -42,16 +42,10 @@ export class Slider {
       if (slide.classList.contains("slide_active")) {
         slide.classList.remove("slide_active");
       }
-      if (slide.classList.contains("slide_prev")) {
-        slide.classList.remove("slide_prev");
-      }
-      if (slide.classList.contains("slide_next")) {
-        slide.classList.remove("slide_next");
-      }
     });
   }
 
-  moveSlideLeft(activeSlideIndex) {
+  moveSlidesLeft(activeSlideIndex) {
     // if current active slide is less than the total number of slides
     // previousSlidIndex = activeSlideIndex;
     // activeSlideIndex = activeSlideIndex++
@@ -81,7 +75,7 @@ export class Slider {
     }
   }
 
-  moveSlideRight(activeSlideIndex) {
+  moveSlidesRight(activeSlideIndex) {
     // if current active slide === 0
     // previousSlidIndex = activeSlideIndex;
     // activeSlideIndex = slides.length - 1
@@ -107,5 +101,9 @@ export class Slider {
         activeSlideIndex
       ].style.transform = `translateX(-${percents}%)`;
     }
+  }
+
+  init() {
+    this.bindEvents();
   }
 }
