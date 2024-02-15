@@ -411,7 +411,7 @@ p {
   margin: 0;
 }
 
-.modal__close-btn, .menu-item__image, .tab, .mobile-app__button, .about__image, .slider__arrow, .hero__button .hero__buttton-text, .hero__button, .navigation__item, .footer__contacts-link:after, .footer__social-link, .header__menu-link, .icon {
+.modal__close-btn, .menu-item__image, .tab, .mobile-app__button, .about__image, .control, .slider__arrow, .hero__button .hero__buttton-text, .hero__button, .navigation__item, .footer__contacts-link:after, .footer__social-link, .header__menu-link, .icon {
   transition: all 0.3s ease-out;
 }
 

@@ -8,26 +8,32 @@ export class Slider {
     this.controls = document.querySelectorAll(".control");
   }
 
-  left = (e) => {
-    if (e.target.closest(".slider__arrow_left")) {
-      const activeSlideIndex = this.getActiveSlideIndex();
-      this.unmarkAllSlides();
-      this.moveSlidesRight(activeSlideIndex);
-    }
-  };
-
-  right = (e) => {
-    if (e.target.closest(".slider__arrow_right")) {
-      let activeSlideIndex = this.getActiveSlideIndex();
-      this.unmarkAllSlides();
-      this.moveSlidesLeft(activeSlideIndex);
-    }
-  };
+  init() {
+    this.bindEvents();
+  }
 
   bindEvents() {
-    this.arrowLeft.addEventListener("click", this.left);
-    this.arrowRight.addEventListener("click", this.right);
+    this.arrowLeft.addEventListener("click", this.handleLeftArrowBtnClick);
+    this.arrowRight.addEventListener("click", this.handleRightArrowBtnClick);
   }
+
+  handleLeftArrowBtnClick = (e) => {
+    if (e.target.closest(".slider__arrow_left")) {
+      const activeSlideIndex = this.getActiveSlideIndex();
+      this.unselectAllSlides();
+      this.unselectAllControls();
+      this.right(activeSlideIndex);
+    }
+  };
+
+  handleRightArrowBtnClick = (e) => {
+    if (e.target.closest(".slider__arrow_right")) {
+      let activeSlideIndex = this.getActiveSlideIndex();
+      this.unselectAllSlides();
+      this.unselectAllControls();
+      this.left(activeSlideIndex);
+    }
+  };
 
   getActiveSlideIndex() {
     const slides = Array.from(this.slides);
@@ -36,16 +42,23 @@ export class Slider {
     );
   }
 
-  unmarkAllSlides() {
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((slide) => {
+  unselectAllSlides() {
+    this.slides.forEach((slide) => {
       if (slide.classList.contains("slide_active")) {
         slide.classList.remove("slide_active");
       }
     });
   }
 
-  moveSlidesLeft(activeSlideIndex) {
+  unselectAllControls() {
+    this.controls.forEach((control) => {
+      if (control.classList.contains("control_active")) {
+        control.classList.remove("control_active");
+      }
+    });
+  }
+
+  left(activeSlideIndex) {
     // if current active slide is less than the total number of slides
     // previousSlidIndex = activeSlideIndex;
     // activeSlideIndex = activeSlideIndex++
@@ -73,9 +86,10 @@ export class Slider {
         slide.style.transform = `translateX(${percents}%)`;
       });
     }
+    this.selectControl(activeSlideIndex);
   }
 
-  moveSlidesRight(activeSlideIndex) {
+  right(activeSlideIndex) {
     // if current active slide === 0
     // previousSlidIndex = activeSlideIndex;
     // activeSlideIndex = slides.length - 1
@@ -101,9 +115,10 @@ export class Slider {
         activeSlideIndex
       ].style.transform = `translateX(-${percents}%)`;
     }
+    this.selectControl(activeSlideIndex);
   }
 
-  init() {
-    this.bindEvents();
+  selectControl(index) {
+    this.controls[index].classList.add("control_active");
   }
 }
