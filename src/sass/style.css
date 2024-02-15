@@ -969,7 +969,7 @@ h3 {
   width: 100%;
   flex-shrink: 0;
   justify-content: center;
-  transition: all 1s ease-in-out;
+  transition: all 1s linear;
 }
 .slide_prev {
   transform: translateX(-100%);
