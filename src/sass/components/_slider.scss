@@ -64,12 +64,11 @@
   // display: flex;
   // // ===added
   // max-width: 480px;
-  // overflow: hidden;
+  overflow: hidden;
   // transition: all 1s ease-in-out;
   flex-grow: 1;
   display: flex;
   // justify-content: center;
-  overflow-x: scroll;
   margin: 0;
 }
 
@@ -101,8 +100,16 @@
   //   display: none;
   // }
 
+  &_prev {
+    transform: translateX(-100%);
+  }
+
+  &_next {
+    transform: translateX(-100%);
+  }
+
   &_active {
-    transform: translateX(0);
+    // transform: translateX(0);
   }
 }
 
