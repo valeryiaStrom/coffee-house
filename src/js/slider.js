@@ -19,35 +19,37 @@ export class Slider {
 
   handleLeftArrowBtnClick = (e) => {
     if (e.target.closest(".slider__arrow_left")) {
-      const activeSlideIndex = this.getActiveSlideIndex();
-      this.unselectAllSlides();
+      const activeControlIndex = this.getActiveControlIndex();
+      const { prev, next } = this.getNextActiveControlIndex(
+        activeControlIndex,
+        "ltr"
+      );
       this.unselectAllControls();
-      this.right(activeSlideIndex);
+      this.unselectAllSlides();
+      this.selectControl(next);
+      this.selectSlide(next);
     }
   };
 
   handleRightArrowBtnClick = (e) => {
     if (e.target.closest(".slider__arrow_right")) {
-      let activeSlideIndex = this.getActiveSlideIndex();
-      this.unselectAllSlides();
+      const activeControlIndex = this.getActiveControlIndex();
+      const { prev, next } = this.getNextActiveControlIndex(
+        activeControlIndex,
+        "rtl"
+      );
       this.unselectAllControls();
-      this.left(activeSlideIndex);
+      this.unselectAllSlides();
+      this.selectControl(next);
+      this.selectSlide(next);
     }
   };
 
-  getActiveSlideIndex() {
-    const slides = Array.from(this.slides);
-    return slides.findIndex((slide) =>
-      slide.classList.contains("slide_active")
+  getActiveControlIndex() {
+    const controls = Array.from(this.controls);
+    return controls.findIndex((control) =>
+      control.classList.contains("control_active")
     );
-  }
-
-  unselectAllSlides() {
-    this.slides.forEach((slide) => {
-      if (slide.classList.contains("slide_active")) {
-        slide.classList.remove("slide_active");
-      }
-    });
   }
 
   unselectAllControls() {
@@ -58,67 +60,50 @@ export class Slider {
     });
   }
 
-  left(activeSlideIndex) {
-    // if current active slide is less than the total number of slides
-    // previousSlidIndex = activeSlideIndex;
-    // activeSlideIndex = activeSlideIndex++
-
-    // else
-    // mark [0] slide as active
-    // previousSlidIndex = activeSlideIndex;
-    // activeSlideIndex = 0;
-    if (activeSlideIndex < this.slides.length - 1) {
-      const prevSlideIndex = activeSlideIndex;
-      activeSlideIndex = ++activeSlideIndex;
-      let percents = activeSlideIndex === 0 ? 100 : activeSlideIndex * 100;
-      this.slides[activeSlideIndex].classList.add("slide_active");
-
-      this.slides[prevSlideIndex].style.transform = `translateX(-${percents}%)`;
-      this.slides[
-        activeSlideIndex
-      ].style.transform = `translateX(-${percents}%)`;
-    } else {
-      activeSlideIndex = 0;
-      let percents = activeSlideIndex;
-      this.slides[activeSlideIndex].classList.add("slide_active");
-
-      this.slides.forEach((slide) => {
-        slide.style.transform = `translateX(${percents}%)`;
-      });
-    }
-    this.selectControl(activeSlideIndex);
+  unselectAllSlides() {
+    this.slides.forEach((slide) => {
+      if (slide.classList.contains("slide_active")) {
+        slide.classList.remove("slide_active");
+      }
+    });
   }
 
-  right(activeSlideIndex) {
-    // if current active slide === 0
-    // previousSlidIndex = activeSlideIndex;
-    // activeSlideIndex = slides.length - 1
-
-    // else
-    // previousSlidIndex = activeSlideIndex;
-    // activeSlideIndex = activeSlideIndex--;
-
-    if (activeSlideIndex === 0) {
-      activeSlideIndex = this.slides.length - 1;
-      let percents = activeSlideIndex * 100;
-      this.slides[activeSlideIndex].classList.add("slide_active");
-      this.slides.forEach((slide) => {
-        slide.style.transform = `translateX(-${percents}%`;
-      });
+  getNextActiveControlIndex(currentActiveControlIndex, direction) {
+    let prevControlIndex;
+    let nextControlIndex;
+    if (direction === "ltr") {
+      if (currentActiveControlIndex === 0) {
+        prevControlIndex = currentActiveControlIndex;
+        nextControlIndex = this.controls.length - 1;
+      } else {
+        prevControlIndex = currentActiveControlIndex;
+        nextControlIndex = --currentActiveControlIndex;
+      }
     } else {
-      const prevSlideIndex = activeSlideIndex;
-      activeSlideIndex = --activeSlideIndex;
-      let percents = activeSlideIndex * 100;
-      this.slides[activeSlideIndex].classList.add("slide_active");
-      this.slides[prevSlideIndex].style.transform = `translateX(-${percents}%)`;
-      this.slides[
-        activeSlideIndex
-      ].style.transform = `translateX(-${percents}%)`;
+      if (currentActiveControlIndex < this.controls.length - 1) {
+        prevControlIndex = currentActiveControlIndex;
+        nextControlIndex = ++currentActiveControlIndex;
+      } else {
+        prevControlIndex = currentActiveControlIndex;
+        nextControlIndex = 0;
+      }
     }
-    this.selectControl(activeSlideIndex);
+
+    return {
+      prev: prevControlIndex,
+      next: nextControlIndex,
+    };
   }
 
   selectControl(index) {
     this.controls[index].classList.add("control_active");
+  }
+
+  selectSlide(nextIndex) {
+    const percents = nextIndex * 100;
+    this.slides[nextIndex].classList.add("slide_active");
+    this.slides.forEach((slide) => {
+      slide.style.transform = `translateX(-${percents}%)`;
+    });
   }
 }
