@@ -120,14 +120,42 @@
 }
 
 .control {
-  display: inline-block;
+  display: flex;
   width: 40px;
   height: 4px;
   border-radius: 100px;
-  background-color: $color-border-light;
   @extend %transition;
+  background-color: $color-border-light;
+  &:hover {
+    .control__inner {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.control__inner {
+  width: 100%;
+  height: 100%;
 
   &_active {
     background-color: $color-border-dark;
+    animation-name: animate-control-inner-bg;
+    animation-duration: 5s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes animate-control-inner-bg {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
