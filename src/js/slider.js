@@ -1,5 +1,6 @@
 export class Slider {
-  constructor() {
+  constructor(autoplay = true) {
+    this.autoplay = autoplay;
     this.arrowLeft = document.querySelector(".slider__arrow_left");
     this.arrowRight = document.querySelector(".slider__arrow_right");
     this.carousel = document.querySelector(".slider__slides");
@@ -13,6 +14,12 @@ export class Slider {
   }
 
   bindEvents() {
+    if (this.autoplay) {
+      this.controlsContainer.addEventListener(
+        "animationiteration",
+        this.handleConrolsAnimationInteractionEnd
+      );
+    }
     this.arrowLeft.addEventListener("click", this.handleLeftArrowBtnClick);
     this.arrowRight.addEventListener("click", this.handleRightArrowBtnClick);
   }
@@ -20,10 +27,7 @@ export class Slider {
   handleLeftArrowBtnClick = (e) => {
     if (e.target.closest(".slider__arrow_left")) {
       const activeControlIndex = this.getActiveControlIndex();
-      const { prev, next } = this.getNextActiveControlIndex(
-        activeControlIndex,
-        "ltr"
-      );
+      const next = this.getNextActiveControlIndex(activeControlIndex, "ltr");
       this.unselectAllControls();
       this.unselectAllSlides();
       this.selectControl(next);
@@ -34,10 +38,7 @@ export class Slider {
   handleRightArrowBtnClick = (e) => {
     if (e.target.closest(".slider__arrow_right")) {
       const activeControlIndex = this.getActiveControlIndex();
-      const { prev, next } = this.getNextActiveControlIndex(
-        activeControlIndex,
-        "rtl"
-      );
+      const next = this.getNextActiveControlIndex(activeControlIndex, "rtl");
       this.unselectAllControls();
       this.unselectAllSlides();
       this.selectControl(next);
@@ -69,30 +70,22 @@ export class Slider {
   }
 
   getNextActiveControlIndex(currentActiveControlIndex, direction) {
-    let prevControlIndex;
-    let nextControlIndex;
+    let nextActiveControlIndex;
     if (direction === "ltr") {
       if (currentActiveControlIndex === 0) {
-        prevControlIndex = currentActiveControlIndex;
-        nextControlIndex = this.controls.length - 1;
+        nextActiveControlIndex = this.controls.length - 1;
       } else {
-        prevControlIndex = currentActiveControlIndex;
-        nextControlIndex = --currentActiveControlIndex;
+        nextActiveControlIndex = --currentActiveControlIndex;
       }
     } else {
       if (currentActiveControlIndex < this.controls.length - 1) {
-        prevControlIndex = currentActiveControlIndex;
-        nextControlIndex = ++currentActiveControlIndex;
+        nextActiveControlIndex = ++currentActiveControlIndex;
       } else {
-        prevControlIndex = currentActiveControlIndex;
-        nextControlIndex = 0;
+        nextActiveControlIndex = 0;
       }
     }
 
-    return {
-      prev: prevControlIndex,
-      next: nextControlIndex,
-    };
+    return nextActiveControlIndex;
   }
 
   selectControl(index) {
@@ -106,4 +99,16 @@ export class Slider {
       slide.style.transform = `translateX(-${percents}%)`;
     });
   }
+
+  handleConrolsAnimationInteractionEnd = (e) => {
+    if (e.target.closest(".control_active")) {
+      // switch slides to the right
+      const activeControlIndex = this.getActiveControlIndex();
+      const next = this.getNextActiveControlIndex(activeControlIndex, "rtl");
+      this.unselectAllControls();
+      this.unselectAllSlides();
+      this.selectControl(next);
+      this.selectSlide(next);
+    }
+  };
 }
