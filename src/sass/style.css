@@ -971,12 +971,7 @@ h3 {
   justify-content: center;
   transition: all 1s linear;
 }
-.slide_prev {
-  transform: translateX(-100%);
-}
-.slide_next {
-  transform: translateX(-100%);
-}
+
 .slide__content {
   display: flex;
   max-width: 480px;

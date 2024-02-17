@@ -71,18 +71,6 @@
   flex-shrink: 0;
   justify-content: center;
   transition: all 1s linear;
-
-  &_prev {
-    transform: translateX(-100%);
-  }
-
-  &_next {
-    transform: translateX(-100%);
-  }
-
-  &_active {
-    // transform: translateX(0);
-  }
 }
 
 .slide__content {
