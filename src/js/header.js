@@ -41,11 +41,11 @@ export class Header {
 
   closeMobileMenu() {
     this.animateBurgerMenuButtonAsClosed();
+    mobileNavigation.close();
   }
 
   animateBurgerMenuButtonAsClosed() {
     this.burgerMenuButton.classList.remove("burger-menu-btn_expanded");
-    mobileNavigation.close();
   }
 
   getHeaderHeight() {
