@@ -6,16 +6,19 @@ import { MenuItem } from "./js/menu-item";
 import { MenuItemModal } from "./js/menu-item-modal";
 import { ModalService } from "./js/modal-service";
 import { Slider } from "./js/slider";
+import { Header } from "./js/header";
 
 const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
 const tabs = new MenuTabs();
 const modalService = new ModalService(products);
 const slider = new Slider(false);
+const header = new Header();
 
 window.onload = function () {
   console.log("Hello");
   const isMenuPage = window.location.href.includes("menu");
+  header.init();
   if (!isMenuPage) {
     console.log("home page: " + window.location.href);
     slider.init();
