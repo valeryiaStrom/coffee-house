@@ -6,7 +6,7 @@
   z-index: 1;
 
   @include media-tablet-small {
-    position: relative;
+    position: static;
   }
 }
 

@@ -1,34 +1,49 @@
 .burger-menu-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 100px;
-    border: 1px solid $color-border-dark;
-    justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  border: 1px solid $color-border-dark;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  display: none;
+
+  @include media-tablet-small {
+    display: flex;
     align-items: center;
-    position: relative;
-    cursor: pointer;
-    display: none;
-  
-    @include media-tablet-small {
-      display: flex;
+  }
+
+  &_expanded {
+    .burger-menu-btn__line {
+      top: 50%;
+      transform: rotate(45deg);
+
+      &:after {
+        bottom: 0;
+        transform: rotate(-90deg);
+      }
     }
   }
-  
-  .burger-menu-btn__line {
+}
+
+.burger-menu-btn__line {
+  display: inline-block;
+  width: 16px;
+  height: 1.5px;
+  background-color: $color-text-dark;
+  position: absolute;
+  top: calc(50% - 0.75px - 4px - 0.75px);
+  @extend %transition;
+
+  &:after {
     display: inline-block;
-    width: 16px;
-    height: 1.5px;
-    background-color: $color-text-dark;
     position: absolute;
-    top: calc( 50% - 0.75px - 4px - 0.75px );
-  
-    &:after {
-      display: inline-block;
-      position: absolute;
-      content: "";
-      height: 1.5px;
-      width: 100%;
-      bottom: -8px;
-      background-color: $color-text-dark;
-    }
+    content: "";
+    height: 1.5px;
+    width: 100%;
+    bottom: -8px;
+    background-color: $color-text-dark;
+    @extend %transition;
   }
+}

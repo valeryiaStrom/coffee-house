@@ -37,7 +37,7 @@
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="./src/sass/style.css" />
   </head>
-  <body>
+  <body class="body">
     <header class="header">
       <div class="wrapper header__wrapper">
         <a href="./" class="logo">
@@ -68,30 +68,33 @@
         <span class="header__burger-menu-btn burger-menu-btn"
           ><span class="burger-menu-btn__line"></span
         ></span>
-        <nav class="mobile-navigation">
-          <ul class="mobile-navigation__menu">
-            <li class="mobile-navigation__item">
-              <a href="./#favorite-coffee" class="navigation__link"
-                >Favorite coffee</a
-              >
-            </li>
-            <li class="mobile-navigation__item">
-              <a href="./#about" class="navigation__link">About</a>
-            </li>
-            <li class="mobile-navigation__item">
-              <a href="./#mobile-app" class="navigation__link">Mobile app</a>
-            </li>
-            <li class="mobile-navigation__item">
-              <a href="./#footer" class="navigation__link">Contact us</a>
-            </li>
-          </ul>
-          <a href="./menu.html" class="mobile-navigation__item mobile-navigation__menu-link"
-          ><span>Menu</span>
-          <span class="icon icon_coffee icon_coffee-mobile-menu"></span>
-        </a>
-        </nav>
       </div>
     </header>
+
+    <nav class="mobile-navigation mobile-navigation_hidden">
+      <ul class="mobile-navigation__menu">
+        <li class="mobile-navigation__item">
+          <a href="./#favorite-coffee" class="mobile-navigation__link"
+            >Favorite coffee</a
+          >
+        </li>
+        <li class="mobile-navigation__item">
+          <a href="./#about" class="mobile-navigation__link">About</a>
+        </li>
+        <li class="mobile-navigation__item">
+          <a href="./#mobile-app" class="mobile-navigation__link">Mobile app</a>
+        </li>
+        <li class="mobile-navigation__item">
+          <a href="./#footer" class="mobile-navigation__link">Contact us</a>
+        </li>
+      </ul>
+      <a
+        href="./menu.html"
+        class="mobile-navigation__item mobile-navigation__link mobile-navigation__menu-link"
+        ><span>Menu</span>
+        <span class="icon icon_coffee icon_coffee-mobile-menu"></span>
+      </a>
+    </nav>
 
     <main>
       <section class="hero" id="hero">

@@ -3,7 +3,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.body {
   @include font(1.6rem, normal, 400, 2.4rem);
   @extend %font-primary;
   color: $color-text-dark;
@@ -12,6 +12,10 @@ body {
 
   @include media-mobile-large {
     padding: 0 16px 40px 16px;
+  }
+
+  &_unscrollable {
+    overflow: hidden;
   }
 }
 
