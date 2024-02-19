@@ -812,10 +812,9 @@ h3 {
     border-bottom: 1px solid #403f3d;
   }
 }
-@media (hover: hover) {
-  .navigation__item_active {
-    border-bottom: 1px solid #403f3d;
-  }
+.navigation__item_active {
+  border-bottom: 1px solid #403f3d;
+  cursor: default;
 }
 
 .navigation__link {
@@ -1484,6 +1483,15 @@ h3 {
   font-weight: 600;
   line-height: 4rem;
   text-align: center;
+}
+@media (hover: hover) {
+  .mobile-navigation__item:hover {
+    border-bottom: 1px solid #403f3d;
+  }
+}
+.mobile-navigation__item_active {
+  border-bottom: 1px solid #403f3d;
+  cursor: default;
 }
 
 .mobile-navigation__link {

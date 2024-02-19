@@ -1,3 +1,5 @@
+import { goToUrl } from "./utils/utils";
+
 export class MobileNavigation {
   constructor() {
     this.self = document.querySelector(".mobile-navigation");
@@ -23,12 +25,27 @@ export class MobileNavigation {
   }
 
   handleNavigationLinksClick = (e) => {
-    if (e.target.closest(".mobile-navigation__item")) {
-      console.log("link was cliked");
-      const clickedLink = e.target.closest(".mobile-navigation__item");
+    // if menu link was clicked
+    if (e.target.closest(".mobile-navigation__menu-link")) {
+      const menuLink = e.target.closest(".mobile-navigation__menu-link");
       e.preventDefault();
-      this.close();
-      this.animateBurgerMenuButtonAsClosed();
+
+      // if menu link is not active
+      if (!menuLink.classList.contains("mobile-navigation__item_active")) {
+        const menuLinkUrl = menuLink.href;
+        this.close();
+        this.animateBurgerMenuButtonAsClosed();
+        goToUrl(menuLinkUrl);
+      }
+    } else {
+      // if any other link was clicked
+      if (e.target.classList.contains("mobile-navigation__link")) {
+        const clickedLinkUrl = e.target.href;
+        e.preventDefault();
+        this.close();
+        this.animateBurgerMenuButtonAsClosed();
+        goToUrl(clickedLinkUrl);
+      }
     }
   };
 

@@ -29,6 +29,17 @@
 .mobile-navigation__item {
   @include font(3.2rem, normal, 600, 4rem);
   text-align: center;
+
+  &:hover {
+    @include hover {
+      border-bottom: 1px solid $color-text-dark;
+    }
+  }
+
+  &_active {
+    border-bottom: 1px solid $color-text-dark;
+    cursor: default;
+  }
 }
 
 .mobile-navigation__link {

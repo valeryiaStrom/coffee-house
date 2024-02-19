@@ -12,7 +12,7 @@ const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
 const tabs = new MenuTabs();
 const modalService = new ModalService(products);
-const slider = new Slider(false);
+const slider = new Slider(true);
 const header = new Header();
 
 window.onload = function () {
