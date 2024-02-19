@@ -645,10 +645,13 @@ h3 {
 
 .header {
   padding: 20px 0 20px 0;
-  position: sticky;
+  position: static;
   top: 0;
   background-color: #e1d4c9;
   z-index: 1;
+}
+.header_sticky {
+  position: sticky;
 }
 @media screen and (max-width: 768px) {
   .header {

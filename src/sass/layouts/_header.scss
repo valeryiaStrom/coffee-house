@@ -1,9 +1,13 @@
 .header {
   padding: 20px 0 20px 0;
-  position: sticky;
+  position: static;
   top: 0;
   background-color: $color-bg-body;
   z-index: 1;
+
+  &_sticky {
+    position: sticky;
+  }
 
   @include media-tablet-small {
     position: static;

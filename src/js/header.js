@@ -51,4 +51,8 @@ export class Header {
   getHeaderHeight() {
     return this.self.offsetHeight;
   }
+
+  setStickyPosition() {
+    this.self.classList.toggle('header_sticky');
+  }
 }
