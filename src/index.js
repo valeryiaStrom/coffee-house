@@ -79,10 +79,9 @@ window.onload = function () {
 
         // get modal data by id
         const data = modalService.getDataItemById(clickedMenuItemId);
-        console.log(data);
 
+        // prepare data for modal window
         const preparedProductData = modalService.prepareProductData(data);
-        console.log(preparedProductData);
 
         // render modal
         const modal = new MenuItemModal(preparedProductData);
