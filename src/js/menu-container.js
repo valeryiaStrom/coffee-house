@@ -10,7 +10,6 @@ export class MenuContainer {
   }
 
   renderMenuItems(menuItems, count = 8) {
-    console.log(count)
     let itemsToRender;
     if (menuItems.length > count) {
       itemsToRender = menuItems.slice(0, count);

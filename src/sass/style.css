@@ -575,6 +575,12 @@ h3 {
   height: 40px;
 }
 
+.icon-load-more {
+  background-image: url("../../src/images/icons/refresh.svg");
+  width: 24px;
+  height: 24px;
+}
+
 .link-button {
   min-width: 200px;
   border-radius: 100px;
@@ -631,6 +637,18 @@ h3 {
   width: 100%;
   bottom: -8px;
   background-color: #403f3d;
+}
+
+.load-more-button {
+  width: 60px;
+  height: 60px;
+  background-color: #e1d4c9;
+  border-radius: 100px;
+  border: 1px solid #665f55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -1260,6 +1278,12 @@ h3 {
   flex-basis: 310px;
   overflow: hidden;
   height: 506px;
+}
+
+.menu__load-more-button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .tabs {
