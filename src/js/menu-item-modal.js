@@ -83,6 +83,8 @@ export class MenuItemModal extends BaseModal {
 
     template += `</div>`;
 
+    template += `</div>`;
+
     template += `<div class="modal__total">`;
     template += `<span class="modal__total-label">Total:</span>`;
     template += `<h3 class="modal__total-price">$7.00</h3>`;
