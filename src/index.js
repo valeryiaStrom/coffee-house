@@ -7,6 +7,8 @@ import { MenuItemModal } from "./js/menu-item-modal";
 import { ModalService } from "./js/modal-service";
 import { Slider } from "./js/slider";
 import { Header } from "./js/header";
+import { getClientWidth } from "./js/utils/utils";
+import { tabletSmallWidth } from "./js/constants";
 
 const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
@@ -16,7 +18,7 @@ const slider = new Slider(true);
 const header = new Header();
 
 window.onload = function () {
-  console.log("Hello");
+  console.log("Helloooo");
   const isMenuPage = window.location.href.includes("menu");
   header.init();
   if (!isMenuPage) {
@@ -38,8 +40,37 @@ window.onload = function () {
       return menuItem.createMenuItemElement();
     });
 
-    // render menu items
-    menuItemsContainer.renderMenuItems(menuItems);
+    const clientWidth = getClientWidth();
+
+    // render menu items based on device width
+    if (clientWidth <= tabletSmallWidth) {
+      menuItemsContainer.renderMenuItems(menuItems, 4);
+    } else {
+      menuItemsContainer.renderMenuItems(menuItems);
+    }
+
+    // handle window resize to re-render menu items
+    window.addEventListener("resize", (e) => {
+      const selctedTabId = tabs.getSelectedTabCategory();
+      // filter products data by category
+      const productsData = menuItemService.filterDataByCategory(selctedTabId);
+
+      // create menu items from filtered data
+      const menuItems = productsData.map((productData) => {
+        const menuItem = new MenuItem(productData);
+        return menuItem.createMenuItemElement();
+      });
+
+      menuItemsContainer.clear();
+
+      const clientWidth = getClientWidth();
+
+      if (clientWidth <= tabletSmallWidth) {
+        menuItemsContainer.renderMenuItems(menuItems, 4);
+      } else {
+        menuItemsContainer.renderMenuItems(menuItems);
+      }
+    });
 
     // handle menu tabs click
     tabs.tabsContainer.addEventListener("click", (e) => {
@@ -62,11 +93,16 @@ window.onload = function () {
           return menuItem.createMenuItemElement();
         });
 
+        const clientWidth = getClientWidth();
+
         // clear displayed menu items
         menuItemsContainer.clear();
 
-        // render menu items
-        menuItemsContainer.renderMenuItems(menuItems);
+        if (clientWidth <= tabletSmallWidth) {
+          menuItemsContainer.renderMenuItems(menuItems, 4);
+        } else {
+          menuItemsContainer.renderMenuItems(menuItems);
+        }
       }
     });
 
