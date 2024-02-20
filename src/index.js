@@ -73,16 +73,19 @@ window.onload = function () {
     // handle menu item click
     menuItemsContainer.self.addEventListener("click", (e) => {
       if (e.target.closest(".menu__item")) {
-        console.log("menu item was clicked");
         const clickedMenuItem = e.target.closest(".menu__item");
         const clickedMenuItemId = clickedMenuItem.getAttribute("data-id");
         console.log(clickedMenuItemId);
 
         // get modal data by id
         const data = modalService.getDataItemById(clickedMenuItemId);
+        console.log(data);
+
+        const preparedProductData = modalService.prepareProductData(data);
+        console.log(preparedProductData);
 
         // render modal
-        const modal = new MenuItemModal(data);
+        const modal = new MenuItemModal(preparedProductData);
         modal.renderModal();
       }
     });

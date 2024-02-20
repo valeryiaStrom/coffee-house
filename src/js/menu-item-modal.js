@@ -1,6 +1,7 @@
+import { BaseModal } from "./base-modal";
 import { Header } from "./header";
 
-export class MenuItemModal {
+export class MenuItemModal extends BaseModal {
   constructor({
     id,
     imageSrc,
@@ -11,6 +12,7 @@ export class MenuItemModal {
     sizes,
     additives,
   }) {
+    super();
     this.id = id;
     this.imageSrc = imageSrc;
     this.title = name;
@@ -23,22 +25,11 @@ export class MenuItemModal {
   }
 
   renderModal() {
-    const template = this.createModalTemplate();
-    this.createOverlay();
-    this.createModalElement();
+    const content = this.createModalTemplate();
+    super.renderModal(content);
     this.bindEvents();
-    // this.openModal();
+    super.openModal();
   }
-
-  createOverlay() {
-    const overlay = document.createElement("div");
-    overlay.className = "overlay";
-    document.body.append(overlay);
-    document.body.classList.toggle("body_unscrollable");
-    this.header.setStickyPosition();
-  }
-
-  createModalElement() {}
 
   createModalTemplate() {
     let template = "";
@@ -49,7 +40,7 @@ export class MenuItemModal {
 
     template += `<div class="modal__content">`;
     template += `<div class="modal__text">`;
-    template += `<h3 class="modal__title">${this.name}</h3>`;
+    template += `<h3 class="modal__title">${this.title}</h3>`;
     template += `<p class="modal__description">${this.description}</p>`;
     template += `</div>`;
 
@@ -59,11 +50,13 @@ export class MenuItemModal {
     template += `<div class="modal__sizes-tabs tabs">`;
 
     this.sizes.forEach((sizeData, i) => {
-      template += `<div class="tab tab_active" data-add-price="${sizeData.s["add-price"]}">`;
+      template += `<div class="${
+        i === 0 ? "tab tab_active" : "tab"
+      }" data-addprice="${sizeData["add-price"]}">`;
       template += `<span class="tab__icon">`;
-      template += `<span class="icon">S</span>`;
+      template += `<span class="icon">${sizeData.label}</span>`;
       template += `</span>`;
-      template += `<span class="tab__text"${sizeData.s.size}</span>`;
+      template += `<span class="tab__text">${sizeData.size}</span>`;
       template += `</div>`;
     });
 
@@ -78,11 +71,13 @@ export class MenuItemModal {
     template += `<div class="modal__additivies-tabs tabs">`;
 
     this.additives.forEach((additiveData, i) => {
-      template += `<div class="tab tab_active" data-add-price="${additiveData["add-price"]}">`;
+      template += `<div class="${
+        i === 0 ? "tab tab_active" : "tab"
+      }" data-addprice="${additiveData["add-price"]}">`;
       template += `<span class="tab__icon">`;
       template += `<span class="icon">${i + 1}</span>`;
       template += `</span>`;
-      template += `<span class="tab__text"${additiveData.name}</span>`;
+      template += `<span class="tab__text">${additiveData.name}</span>`;
       template += `</div>`;
     });
 
@@ -101,21 +96,17 @@ export class MenuItemModal {
 
     template += `<button class="modal__close-btn">Close</button>`;
     template += `</div>`;
+
+    return template;
   }
 
   bindEvents() {
     this.overlay.addEventListener("click", this.closeModal);
   }
 
-  get overlay() {
-    return document.querySelector(".overlay");
-  }
-
   get closeBtn() {
     return document.querySelector(".modal__close-btn");
   }
-
-  openModal() {}
 
   closeModal = (e) => {
     if (

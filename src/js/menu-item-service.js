@@ -6,8 +6,4 @@ export class MenuItemService {
   filterDataByCategory(category) {
     return this.data.filter((product) => product.category === category);
   }
-
-  prepareSizesData(sizes) {
-
-  }
 }
