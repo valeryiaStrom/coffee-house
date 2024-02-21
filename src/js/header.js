@@ -14,12 +14,22 @@ export class Header {
   }
 
   attachEvents() {
+    this.self.addEventListener("click", this.handleHeaderLinksClick);
     this.burgerMenuButton.addEventListener(
       "click",
       this.handleBurgerMenuButtonClick
     );
     window.addEventListener("resize", this.handleMobileMenuOnWindowResize);
   }
+
+  handleHeaderLinksClick = (e) => {
+    if (e.target.closest(".navigation__item")) {
+      const headerLink = e.target.closest(".navigation__item");
+      if (headerLink.classList.contains('navigation__item_active')) {
+        e.preventDefault();
+      }
+    }
+  };
 
   handleBurgerMenuButtonClick = (e) => {
     if (e.target.closest(".header__burger-menu-btn")) {

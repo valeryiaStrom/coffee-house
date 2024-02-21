@@ -17,6 +17,9 @@
   &_active {
     border-bottom: 1px solid $color-text-dark;
     cursor: default;
+    & > * {
+      cursor: default;
+    }
   }
 }
 

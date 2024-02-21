@@ -837,6 +837,9 @@ h3 {
   border-bottom: 1px solid #403f3d;
   cursor: default;
 }
+.navigation__item_active > * {
+  cursor: default;
+}
 
 .navigation__link {
   font-style: normal;
