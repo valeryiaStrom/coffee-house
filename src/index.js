@@ -8,7 +8,7 @@ import { ModalService } from "./js/modal-service";
 import { Slider } from "./js/slider";
 import { Header } from "./js/header";
 import { getClientWidth } from "./js/utils/utils";
-import { tabletSmallWidth } from "./js/constants";
+import { TABLET_SMALL_WIDTH, MAX_PRODUCTS_COUNT_TABLET } from "./js/constants";
 
 const menuItemService = new MenuItemService(products);
 const menuItemsContainer = new MenuContainer();
@@ -45,8 +45,8 @@ window.onload = function () {
     menuItemsContainer.renderMenuItems(menuItems);
 
     if (
-      clientWidth <= tabletSmallWidth &&
-      menuItemsContainer.menuItems.length > 4
+      clientWidth <= TABLET_SMALL_WIDTH &&
+      menuItemsContainer.menuItems.length > MAX_PRODUCTS_COUNT_TABLET
     ) {
       // if device width is tablet or lower, hide all items after 4th
       menuItemsContainer.hideMenuItemsForSmallDeviceWidth();
@@ -68,8 +68,8 @@ window.onload = function () {
       const clientWidth = getClientWidth();
 
       if (
-        clientWidth <= tabletSmallWidth &&
-        menuItemsContainer.menuItems.length > 4
+        clientWidth <= TABLET_SMALL_WIDTH &&
+        menuItemsContainer.menuItems.length > MAX_PRODUCTS_COUNT_TABLET
       ) {
         // if device width is tablet or lower, hide all items after 4th
         menuItemsContainer.hideMenuItemsForSmallDeviceWidth();
@@ -110,8 +110,8 @@ window.onload = function () {
         menuItemsContainer.renderMenuItems(menuItems);
 
         if (
-          clientWidth <= tabletSmallWidth &&
-          menuItemsContainer.menuItems.length > 4
+          clientWidth <= TABLET_SMALL_WIDTH &&
+          menuItemsContainer.menuItems.length > MAX_PRODUCTS_COUNT_TABLET
         ) {
           // if device width is tablet or lower, hide all items after 4th
           menuItemsContainer.hideMenuItemsForSmallDeviceWidth();

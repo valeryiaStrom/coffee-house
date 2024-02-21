@@ -1,6 +1,6 @@
 import { MobileNavigation } from "./mobile-navigation";
 import { getClientWidth } from "./utils/utils";
-import { tabletSmallWidth } from "./constants";
+import { TABLET_SMALL_WIDTH } from "./constants";
 const mobileNavigation = new MobileNavigation();
 
 export class Header {
@@ -61,7 +61,7 @@ export class Header {
 
   handleMobileMenuOnWindowResize = (e) => {
     const clientWidth = getClientWidth();
-    if (clientWidth > tabletSmallWidth && mobileNavigation.isExpanded()) {
+    if (clientWidth > TABLET_SMALL_WIDTH && mobileNavigation.isExpanded()) {
       this.animateBurgerMenuButtonAsClosed();
       mobileNavigation.close();
     }
