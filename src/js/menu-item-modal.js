@@ -1,5 +1,7 @@
 import { BaseModal } from "./base-modal";
 import { Header } from "./header";
+import { SizeTabs } from "./size-tabs";
+import { AdditivesTabs } from "./additives-tabs";
 
 export class MenuItemModal extends BaseModal {
   constructor({
@@ -22,6 +24,8 @@ export class MenuItemModal extends BaseModal {
     this.sizes = sizes;
     this.additives = additives;
     this.header = new Header();
+    this.sizeTabs = null;
+    this.additivesTabs = null;
   }
 
   renderModal() {
@@ -29,6 +33,10 @@ export class MenuItemModal extends BaseModal {
     super.renderModal(content);
     this.bindEvents();
     super.openModal();
+    this.sizeTabs = new SizeTabs();
+    this.additivesTabs = new AdditivesTabs();
+    this.bindSizesTabsEvents();
+    this.bindAdditivesTabsEvents();
   }
 
   createModalTemplate() {
@@ -71,9 +79,7 @@ export class MenuItemModal extends BaseModal {
     template += `<div class="modal__additivies-tabs tabs">`;
 
     this.additives.forEach((additiveData, i) => {
-      template += `<div class="${
-        i === 0 ? "tab tab_active" : "tab"
-      }" data-addprice="${additiveData["add-price"]}">`;
+      template += `<div class="tab" data-addprice="${additiveData["add-price"]}">`;
       template += `<span class="tab__icon">`;
       template += `<span class="icon">${i + 1}</span>`;
       template += `</span>`;
@@ -120,4 +126,48 @@ export class MenuItemModal extends BaseModal {
       this.header.setStickyPosition();
     }
   };
+
+  bindSizesTabsEvents() {
+    this.sizeTabs.tabsContainer.addEventListener(
+      "click",
+      this.handleSizeTabClick
+    );
+  }
+
+  handleSizeTabClick = (e) => {
+    if (e.target.closest(".tab")) {
+      const clickedTab = e.target.closest(".tab");
+      if (!clickedTab.classList.contains("tab_active")) {
+        this.sizeTabs.unselectAllTabs();
+        this.sizeTabs.selectTab(clickedTab);
+        // recalculate price
+        this.recalculateTotalPrice();
+      }
+    }
+  };
+
+  bindAdditivesTabsEvents() {
+    this.additivesTabs.tabsContainer.addEventListener(
+      "click",
+      this.handleAdditiveTabClick
+    );
+  }
+
+  handleAdditiveTabClick = (e) => {
+    if (e.target.closest(".tab")) {
+      const clickedTab = e.target.closest(".tab");
+      if (clickedTab.classList.contains("tab_active")) {
+        this.additivesTabs.unselectTab(clickedTab);
+        // recalculate price
+      } else {
+        this.additivesTabs.selectTab(clickedTab);
+        // recalculate price
+      }
+      this.recalculateTotalPrice();
+    }
+  };
+
+  recalculateTotalPrice() {
+    console.log("price recalculcated");
+  }
 }

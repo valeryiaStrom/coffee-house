@@ -43,6 +43,16 @@
 
 .modal__additivies-tabs {
   gap: 8px;
+
+  .tab {
+    &_active {
+      cursor: pointer;
+
+      * {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .modal__total {
