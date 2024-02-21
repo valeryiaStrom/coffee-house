@@ -52,4 +52,8 @@ export class MobileNavigation {
   animateBurgerMenuButtonAsClosed() {
     this.burgerMenuButton.classList.remove("burger-menu-btn_expanded");
   }
+
+  isExpanded() {
+    return !this.self.classList.contains("mobile-navigation_hidden");
+  }
 }

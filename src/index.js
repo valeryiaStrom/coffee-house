@@ -18,14 +18,13 @@ const slider = new Slider(true);
 const header = new Header();
 
 window.onload = function () {
-  console.log("Helloooo");
   const isMenuPage = window.location.href.includes("menu");
   header.init();
   if (!isMenuPage) {
-    console.log("home page: " + window.location.href);
+    console.log(`home page: ${window.location.href}`);
     slider.init();
   } else {
-    console.log("menu page");
+    console.log(`menu page: ${window.location.href}`);
     // render menu items by default selected category
     const defaultSelectCategory = tabs.getSelectedTabCategory();
 

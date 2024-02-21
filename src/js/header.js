@@ -1,4 +1,6 @@
 import { MobileNavigation } from "./mobile-navigation";
+import { getClientWidth } from "./utils/utils";
+import { tabletSmallWidth } from "./constants";
 const mobileNavigation = new MobileNavigation();
 
 export class Header {
@@ -16,6 +18,7 @@ export class Header {
       "click",
       this.handleBurgerMenuButtonClick
     );
+    window.addEventListener("resize", this.handleMobileMenuOnWindowResize);
   }
 
   handleBurgerMenuButtonClick = (e) => {
@@ -53,6 +56,14 @@ export class Header {
   }
 
   setStickyPosition() {
-    this.self.classList.toggle('header_sticky');
+    this.self.classList.toggle("header_sticky");
   }
+
+  handleMobileMenuOnWindowResize = (e) => {
+    const clientWidth = getClientWidth();
+    if (clientWidth > tabletSmallWidth && mobileNavigation.isExpanded()) {
+      this.animateBurgerMenuButtonAsClosed();
+      mobileNavigation.close();
+    }
+  };
 }
