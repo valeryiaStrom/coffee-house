@@ -28,8 +28,18 @@ export class BaseTabs {
   }
 
   getSelectedTabDataAttribute(dataAttribute) {
-    const dataAttributeValue =
-      this.selectedTab.getAttribute(dataAttribute) || "";
+    let dataAttributeValue = "";
+    if (this.selectedTab) {
+      dataAttributeValue = this.selectedTab.getAttribute(dataAttribute);
+    } else {
+      const tabs = Array.from(this.tabs);
+      const selectedTab = tabs.find((tab) => {
+        tab.classList.contains("tab_active");
+      });
+
+      dataAttributeValue = selectedTab.getAttribute(dataAttribute);
+    }
+
     return dataAttributeValue;
   }
 }

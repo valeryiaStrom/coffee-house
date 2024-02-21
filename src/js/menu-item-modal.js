@@ -26,6 +26,7 @@ export class MenuItemModal extends BaseModal {
     this.header = new Header();
     this.sizeTabs = null;
     this.additivesTabs = null;
+    this.totalPrice = this.price;
   }
 
   renderModal() {
@@ -138,10 +139,31 @@ export class MenuItemModal extends BaseModal {
     if (e.target.closest(".tab")) {
       const clickedTab = e.target.closest(".tab");
       if (!clickedTab.classList.contains("tab_active")) {
+        let sum = 0;
+        // get current selected tab add price
+        const prevSelectedTabPrice =
+          this.sizeTabs.getSelectedTabDataAttribute("data-addprice");
+        console.log(`prev selected tab add price: ${prevSelectedTabPrice}`);
+        sum = sum - parseFloat(prevSelectedTabPrice);
+        console.log(`sum to minus: ${sum}`);
+
         this.sizeTabs.unselectAllTabs();
+
         this.sizeTabs.selectTab(clickedTab);
-        // recalculate price
-        this.recalculateTotalPrice();
+
+        // get new selected tab add price
+        const currentSelectedTabPrice =
+          this.sizeTabs.getSelectedTabDataAttribute("data-addprice");
+        console.log(
+          `current selected tab add price: ${currentSelectedTabPrice}`
+        );
+
+        sum = sum + parseFloat(currentSelectedTabPrice);
+        console.log(`sum to add: ${sum}`);
+        console.log("========================");
+
+        // recalculate total price
+        this.recalculateTotalPrice(sum.toFixed(2));
       }
     }
   };
@@ -167,7 +189,16 @@ export class MenuItemModal extends BaseModal {
     }
   };
 
-  recalculateTotalPrice() {
-    console.log("price recalculcated");
+  recalculateTotalPrice(addPrice) {
+    this.totalPrice = (
+      parseFloat(this.totalPrice) + parseFloat(addPrice)
+    ).toFixed(2);
+    this.renderTotalPrice();
+  }
+
+  renderTotalPrice() {
+    document.querySelector(
+      ".modal__total-price"
+    ).textContent = `${this.currency}${this.totalPrice}`;
   }
 }
