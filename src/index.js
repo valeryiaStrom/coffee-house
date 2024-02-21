@@ -42,11 +42,16 @@ window.onload = function () {
 
     const clientWidth = getClientWidth();
 
-    // render menu items based on device width
-    if (clientWidth <= tabletSmallWidth) {
-      menuItemsContainer.renderMenuItems(menuItems, 4);
-    } else {
-      menuItemsContainer.renderMenuItems(menuItems);
+    // render menu items
+    menuItemsContainer.renderMenuItems(menuItems);
+
+    if (
+      clientWidth <= tabletSmallWidth &&
+      menuItemsContainer.menuItems.length > 4
+    ) {
+      // if device width is tablet or lower, hide all items after 4th
+      menuItemsContainer.hideMenuItemsForSmallDeviceWidth();
+      menuItemsContainer.showLoadMoreButton();
     }
 
     // handle window resize to re-render menu items
@@ -61,14 +66,18 @@ window.onload = function () {
         return menuItem.createMenuItemElement();
       });
 
-      menuItemsContainer.clear();
-
       const clientWidth = getClientWidth();
 
-      if (clientWidth <= tabletSmallWidth) {
-        menuItemsContainer.renderMenuItems(menuItems, 4);
+      if (
+        clientWidth <= tabletSmallWidth &&
+        menuItemsContainer.menuItems.length > 4
+      ) {
+        // if device width is tablet or lower, hide all items after 4th
+        menuItemsContainer.hideMenuItemsForSmallDeviceWidth();
+        menuItemsContainer.showLoadMoreButton();
       } else {
-        menuItemsContainer.renderMenuItems(menuItems);
+        menuItemsContainer.showHiddenMenuItems();
+        menuItemsContainer.hideLoadMoreButton();
       }
     });
 
@@ -98,10 +107,18 @@ window.onload = function () {
         // clear displayed menu items
         menuItemsContainer.clear();
 
-        if (clientWidth <= tabletSmallWidth) {
-          menuItemsContainer.renderMenuItems(menuItems, 4);
+        // render menu items
+        menuItemsContainer.renderMenuItems(menuItems);
+
+        if (
+          clientWidth <= tabletSmallWidth &&
+          menuItemsContainer.menuItems.length > 4
+        ) {
+          // if device width is tablet or lower, hide all items after 4th
+          menuItemsContainer.hideMenuItemsForSmallDeviceWidth();
+          menuItemsContainer.showLoadMoreButton();
         } else {
-          menuItemsContainer.renderMenuItems(menuItems);
+          menuItemsContainer.hideLoadMoreButton();
         }
       }
     });
@@ -111,7 +128,6 @@ window.onload = function () {
       if (e.target.closest(".menu__item")) {
         const clickedMenuItem = e.target.closest(".menu__item");
         const clickedMenuItemId = clickedMenuItem.getAttribute("data-id");
-        console.log(clickedMenuItemId);
 
         // get modal data by id
         const data = modalService.getDataItemById(clickedMenuItemId);

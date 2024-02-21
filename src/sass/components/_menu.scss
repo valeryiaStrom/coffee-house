@@ -25,10 +25,18 @@
   flex-basis: 310px;
   overflow: hidden;
   height: 506px;
+
+  &_hidden {
+    display: none;
+  }
 }
 
 .menu__load-more-button {
   margin-top: 40px;
   display: flex;
   justify-content: center;
+
+  &_hidden {
+    display: none;
+  }
 }

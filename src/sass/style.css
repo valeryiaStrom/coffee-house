@@ -1279,11 +1279,17 @@ h3 {
   overflow: hidden;
   height: 506px;
 }
+.menu__item_hidden {
+  display: none;
+}
 
 .menu__load-more-button {
   margin-top: 40px;
   display: flex;
   justify-content: center;
+}
+.menu__load-more-button_hidden {
+  display: none;
 }
 
 .tabs {
@@ -1349,6 +1355,9 @@ h3 {
   .menu-item:hover .menu-item__image {
     transform: scale(1);
   }
+}
+.menu-item_hidden {
+  display: none;
 }
 
 .menu-item__image-wrapper {
