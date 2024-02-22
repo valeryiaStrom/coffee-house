@@ -143,9 +143,8 @@ export class MenuItemModal extends BaseModal {
         // get current selected tab add price
         const prevSelectedTabPrice =
           this.sizeTabs.getSelectedTabDataAttribute("data-addprice");
-        console.log(`prev selected tab add price: ${prevSelectedTabPrice}`);
+
         sum = sum - parseFloat(prevSelectedTabPrice);
-        console.log(`sum to minus: ${sum}`);
 
         this.sizeTabs.unselectAllTabs();
 
@@ -154,13 +153,8 @@ export class MenuItemModal extends BaseModal {
         // get new selected tab add price
         const currentSelectedTabPrice =
           this.sizeTabs.getSelectedTabDataAttribute("data-addprice");
-        console.log(
-          `current selected tab add price: ${currentSelectedTabPrice}`
-        );
 
         sum = sum + parseFloat(currentSelectedTabPrice);
-        console.log(`sum to add: ${sum}`);
-        console.log("========================");
 
         // recalculate total price
         this.recalculateTotalPrice(sum.toFixed(2));
@@ -184,15 +178,12 @@ export class MenuItemModal extends BaseModal {
       if (clickedTab.classList.contains("tab_active")) {
         this.additivesTabs.unselectTab(clickedTab);
         // recalculate price (minus add price)
-        console.log(`price to minus from additives: ${-addPrice}`)
         this.recalculateTotalPrice(-addPrice)
       } else {
         this.additivesTabs.selectTab(clickedTab);
         // recalculate price (plus add price)
-        console.log(`price to add from additives: ${addPrice}`)
         this.recalculateTotalPrice(addPrice);
       }
-      console.log('******************')
     }
   };
 

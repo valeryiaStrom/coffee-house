@@ -111,7 +111,6 @@ export class Slider {
   };
 
   handleTouchStart = (e) => {
-    // where fingers touched the screen for the first time;
     const firstTouch = e.touches[0];
     this.touch.startX = firstTouch.clientX;
     this.touch.startY = firstTouch.clientY;
