@@ -12,6 +12,14 @@
 
 .menu__tabs {
   gap: 16px;
+
+  @include media-mobile-medium {
+    gap: 8px;
+  }
+}
+
+.menu__tabs.tabs {
+  flex-wrap: nowrap;
 }
 
 .menu__items {

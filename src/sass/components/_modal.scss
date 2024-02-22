@@ -4,6 +4,16 @@
   border-radius: 40px;
   padding: 16px;
   max-width: 800px;
+
+  @include media-tablet-small {
+    max-width: 90%;
+  }
+}
+
+.modal__image-wrapper {
+  @include media-tablet-small-2 {
+    display: none;
+  }
 }
 
 .modal__image {
