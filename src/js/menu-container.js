@@ -11,6 +11,7 @@ export class MenuContainer {
   constructor() {
     this.tabs = new MenuTabs();
     this.menuWrapper = document.querySelector(".menu__wrapper");
+    this.menuItemsContainer = document.querySelector(".menu__items");
     this.loadMoreButton = document.querySelector(".menu__load-more-button");
     this.menuItemService = new MenuItemService(products);
     this.modalService = new ModalService(products);
@@ -51,10 +52,6 @@ export class MenuContainer {
     }
   }
 
-  get self() {
-    return document.querySelector(".menu__items");
-  }
-
   bindEvents() {
     // handle window resize to re-render menu items
     window.addEventListener("resize", this.handleWindowResize);
@@ -63,7 +60,7 @@ export class MenuContainer {
     this.tabs.tabsContainer.addEventListener("click", this.handleMenuTabClick);
 
     // handle menu item click
-    this.self.addEventListener("click", this.handleMenuItemClick);
+    this.menuItemsContainer.addEventListener("click", this.handleMenuItemClick);
   }
 
   handleWindowResize = () => {
@@ -142,12 +139,12 @@ export class MenuContainer {
   };
 
   clear() {
-    this.self.innerHTML = "";
+    this.menuItemsContainer.innerHTML = "";
   }
 
   renderMenuItems(menuItems) {
     this.menuItems = menuItems;
-    this.self.append(...menuItems);
+    this.menuItemsContainer.append(...menuItems);
   }
 
   hideMenuItemsForSmallDeviceWidth() {
