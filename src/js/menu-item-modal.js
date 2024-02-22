@@ -94,7 +94,7 @@ export class MenuItemModal extends BaseModal {
 
     template += `<div class="modal__total">`;
     template += `<span class="modal__total-label">Total:</span>`;
-    template += `<h3 class="modal__total-price">$7.00</h3>`;
+    template += `<h3 class="modal__total-price">${this.currency}${this.price}</h3>`;
     template += `</div>`;
 
     template += `<div class="modal__alert">`;
@@ -178,14 +178,21 @@ export class MenuItemModal extends BaseModal {
   handleAdditiveTabClick = (e) => {
     if (e.target.closest(".tab")) {
       const clickedTab = e.target.closest(".tab");
+      // get add price value of curr selected tab
+      const addPrice = parseFloat(this.additivesTabs.getTabDataAttribute(clickedTab, "data-addprice"));
+
       if (clickedTab.classList.contains("tab_active")) {
         this.additivesTabs.unselectTab(clickedTab);
-        // recalculate price
+        // recalculate price (minus add price)
+        console.log(`price to minus from additives: ${-addPrice}`)
+        this.recalculateTotalPrice(-addPrice)
       } else {
         this.additivesTabs.selectTab(clickedTab);
-        // recalculate price
+        // recalculate price (plus add price)
+        console.log(`price to add from additives: ${addPrice}`)
+        this.recalculateTotalPrice(addPrice);
       }
-      this.recalculateTotalPrice();
+      console.log('******************')
     }
   };
 

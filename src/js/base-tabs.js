@@ -30,16 +30,20 @@ export class BaseTabs {
   getSelectedTabDataAttribute(dataAttribute) {
     let dataAttributeValue = "";
     if (this.selectedTab) {
-      dataAttributeValue = this.selectedTab.getAttribute(dataAttribute);
+      dataAttributeValue = this.selectedTab.getAttribute(dataAttribute) || '';
     } else {
       const tabs = Array.from(this.tabs);
       const selectedTab = tabs.find((tab) => {
         tab.classList.contains("tab_active");
       });
 
-      dataAttributeValue = selectedTab.getAttribute(dataAttribute);
+      dataAttributeValue = selectedTab.getAttribute(dataAttribute) | '';
     }
 
     return dataAttributeValue;
+  }
+
+  getTabDataAttribute(tab, dataAttribute) {
+    return tab.getAttribute(dataAttribute) || "";
   }
 }
