@@ -44,7 +44,7 @@ export class MenuItemModal extends BaseModal {
     let template = "";
 
     template += `<div class="modal__image-wrapper">`;
-    template += `<img src="./src/images/menu/coffee/coffee-1.png" alt="Irish coffee" class="modal__image"/>`;
+    template += `<img src="${this.imageSrc}" alt="Irish coffee" class="modal__image"/>`;
     template += `</div>`;
 
     template += `<div class="modal__content">`;
