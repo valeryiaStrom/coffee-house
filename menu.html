@@ -39,7 +39,7 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="./src/sass/style.css" />
+    <link rel="stylesheet" href="./dist/style.css">
   </head>
   <body class="body">
     <header class="header header_sticky">
@@ -54,10 +54,12 @@
                 >Favorite coffee</a
               >
             </li>
-            <li class="navigation__item"><a href="./#about" class="navigation__link">About</a></li>
+            <li class="navigation__item">
+              <a href="./#about" class="navigation__link">About</a>
+            </li>
             <li class="navigation__item">
               <a href="./#mobile-app" class="navigation__link">Mobile app</a>
-            </li class="navigation__item">
+            </li>
             <li class="navigation__item">
               <a href="./menu.html#footer" class="navigation__link"
                 >Contact us</a
@@ -65,7 +67,9 @@
             </li>
           </ul>
         </nav>
-        <a href="./menu.html" class="navigation__item navigation__item_active header__menu-link"
+        <a
+          href="./menu.html"
+          class="navigation__item navigation__item_active header__menu-link"
           ><span>Menu</span>
           <span class="icon icon_coffee"></span>
         </a>
@@ -89,7 +93,9 @@
           <a href="./#mobile-app" class="mobile-navigation__link">Mobile app</a>
         </li>
         <li class="mobile-navigation__item">
-          <a href="./menu.html#footer" class="mobile-navigation__link">Contact us</a>
+          <a href="./menu.html#footer" class="mobile-navigation__link"
+            >Contact us</a
+          >
         </li>
       </ul>
       <a
