@@ -31,6 +31,12 @@ export class MenuContainer {
       defaultSelectCategory
     );
 
+    // prepare images
+    const productsDataWithPrepartedImages = productsData.map((productData) => {
+      
+      const newSrc = productData.imageSrc;
+    })
+
     // create menu items from filtered data
     const menuItems = productsData.map((productData) => {
       const menuItem = new MenuItem(productData);

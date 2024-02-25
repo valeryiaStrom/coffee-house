@@ -2,6 +2,7 @@ import { BaseModal } from "./base-modal";
 import { Header } from "./header";
 import { SizeTabs } from "./size-tabs";
 import { AdditivesTabs } from "./additives-tabs";
+// import src from '../images/menu/coffee/coffee-1.png';
 
 export class MenuItemModal extends BaseModal {
   constructor({
@@ -173,12 +174,14 @@ export class MenuItemModal extends BaseModal {
     if (e.target.closest(".tab")) {
       const clickedTab = e.target.closest(".tab");
       // get add price value of curr selected tab
-      const addPrice = parseFloat(this.additivesTabs.getTabDataAttribute(clickedTab, "data-addprice"));
+      const addPrice = parseFloat(
+        this.additivesTabs.getTabDataAttribute(clickedTab, "data-addprice")
+      );
 
       if (clickedTab.classList.contains("tab_active")) {
         this.additivesTabs.unselectTab(clickedTab);
         // recalculate price (minus add price)
-        this.recalculateTotalPrice(-addPrice)
+        this.recalculateTotalPrice(-addPrice);
       } else {
         this.additivesTabs.selectTab(clickedTab);
         // recalculate price (plus add price)

@@ -13,6 +13,7 @@ module.exports = (env, options) => {
     output: {
       path: path.join(__dirname, "dist"),
       filename: "main.js",
+      assetModuleFilename: 'static/images/[hash][ext]',
       clean: true,
     },
     module: {
@@ -29,24 +30,24 @@ module.exports = (env, options) => {
         },
         {
           test: /\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            "sass-loader",
-          ],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           test: /\.html$/,
           loader: "html-loader",
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg)$/,
+          type: "asset",
         },
       ],
     },
 
     plugins: [
       new HtmlWebpackPlugin({ template: "index.html" }),
-      new HtmlWebpackPlugin({  // Also generate a test.html
-        filename: 'menu.html',
-        template: './src/html/menu.html',
+      new HtmlWebpackPlugin({
+        filename: "menu.html",
+        template: "./src/html/menu.html",
       }),
       new MiniCssExtractPlugin({ filename: "style.css" }),
     ],
