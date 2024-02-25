@@ -44,6 +44,10 @@ module.exports = (env, options) => {
 
     plugins: [
       new HtmlWebpackPlugin({ template: "index.html" }),
+      new HtmlWebpackPlugin({  // Also generate a test.html
+        filename: 'menu.html',
+        template: './src/html/menu.html',
+      }),
       new MiniCssExtractPlugin({ filename: "style.css" }),
     ],
   };
