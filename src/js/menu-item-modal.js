@@ -99,7 +99,7 @@ export class MenuItemModal extends BaseModal {
     template += `</div>`;
 
     template += `<div class="modal__alert">`;
-    template += `<object type="image/svg+xml" data="./src/images/icons/modal-icon-alert.svg" width="16" height="16"> </object>`;
+    template += `<object type="image/svg+xml" data="../../src/images/icons/modal-icon-alert.svg" width="16" height="16"> </object>`;
     template += `<span class="modal__alert-text">The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</span>`;
 
     template += `</div>`;
